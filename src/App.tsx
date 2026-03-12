@@ -14,6 +14,9 @@ import Team from "./pages/Team";
 import PhotoCompetition from "./pages/PhotoCompetition";
 import TrustBadge from "./pages/TrustBadge";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import CopyrightLegal from "./pages/CopyrightLegal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
