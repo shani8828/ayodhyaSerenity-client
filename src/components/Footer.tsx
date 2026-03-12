@@ -45,9 +45,18 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
-        <p>© {new Date().getFullYear()} Ayodhya Serenity. All rights reserved.</p>
-        <p>Designed & Developed by the Ayodhya Serenity Team</p>
+      <div className="mt-10 pt-6 border-t border-primary-foreground/20">
+        <div className="flex flex-wrap justify-center gap-4 text-xs opacity-70 mb-4">
+          <Link to="/privacy-policy" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>
+          <span>·</span>
+          <Link to="/terms-and-conditions" className="hover:opacity-100 transition-opacity">Terms & Conditions</Link>
+          <span>·</span>
+          <Link to="/copyright-legal" className="hover:opacity-100 transition-opacity">Copyright & Legal Protection</Link>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs opacity-60">
+          <p>© {new Date().getFullYear()} Ayodhya Serenity — All Rights Reserved.</p>
+          <p>Designed & Developed by the Ayodhya Serenity Team</p>
+        </div>
       </div>
     </div>
   </footer>

@@ -38,6 +38,9 @@ const App = () => (
             <Route path="/photo-competition" element={<PhotoCompetition />} />
             <Route path="/trust-badge" element={<TrustBadge />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsConditions />} />
+            <Route path="/copyright-legal" element={<CopyrightLegal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
