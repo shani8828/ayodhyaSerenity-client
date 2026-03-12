@@ -20,8 +20,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Ayodhya Serenity Logo" className="h-10 w-10" />
+        <Link to="/" className="flex justify-center items-center gap-2">
+        {/* <img className="h-10 w-auto object-contain" src="https://res.cloudinary.com/dcwwptwzt/image/upload/v1771886440/Logo-bgless_va94cp.png" alt="Shravan Kumar Mandir Logo" /> */}
+          <img src="https://res.cloudinary.com/dcwwptwzt/image/upload/v1771886440/Logo-bgless_va94cp.png" alt="Ayodhya Serenity Logo" className="h-10 w-10" />
           <span className="font-display text-xl font-bold text-foreground">
             Ayodhya <span className="text-gradient-saffron">Serenity</span>
           </span>

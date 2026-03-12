@@ -22,7 +22,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ayodhya Serenity",
-  url: "https://ayodhyaserenity.com",
+  url: "https://ayodhyaserenity.vercel.app",
   description: "The trusted digital gateway to Ayodhya's temples, landmarks, and spiritual destinations.",
   sameAs: [],
 };
@@ -66,7 +66,7 @@ const Index = () => (
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          The Trusted Digital Gateway to Ayodhya — delivering verified information, travel guidance, and authentic digital experiences for temples, spiritual landmarks, and cultural sites.
+          The Trusted Digital Gateway to Ayodhya - delivering verified information, travel guidance, and authentic digital experiences for temples, spiritual landmarks, and cultural sites.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ const Index = () => (
           <Button asChild size="lg" className="bg-gradient-saffron hover:opacity-90 text-primary-foreground font-semibold px-8">
             <Link to="/projects">Explore Ayodhya</Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8">
+          <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground bg-primary/10 hover:bg-primary-foreground/30 font-semibold px-8">
             <a href="#plan-visit">Plan Your Visit</a>
           </Button>
         </motion.div>
