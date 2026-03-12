@@ -14,6 +14,9 @@ import Team from "./pages/Team";
 import PhotoCompetition from "./pages/PhotoCompetition";
 import TrustBadge from "./pages/TrustBadge";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import CopyrightLegal from "./pages/CopyrightLegal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +38,9 @@ const App = () => (
             <Route path="/photo-competition" element={<PhotoCompetition />} />
             <Route path="/trust-badge" element={<TrustBadge />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsConditions />} />
+            <Route path="/copyright-legal" element={<CopyrightLegal />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
