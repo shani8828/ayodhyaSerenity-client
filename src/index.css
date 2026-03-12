@@ -4,13 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* This targets all text on the page */
 ::selection {
-  background: rgba(249,115,22,0.25);
-  color: #111827;
-}
-::-moz-selection {
-  background: rgba(249, 115, 22, 0.25);
-  color: #111827;
+  background-color: rgba(255, 165, 0, 0.1); /* Your primary color with low opacity */
+  color: #fb923c; /* You can also change the text color itself */
 }
 img {
   user-select: none;
