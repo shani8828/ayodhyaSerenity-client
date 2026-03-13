@@ -1,9 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+
 Sitemap: https://ayodhyaserenity.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
 
 User-agent: Bingbot
 Allow: /
