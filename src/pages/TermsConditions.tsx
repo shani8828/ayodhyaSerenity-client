@@ -30,7 +30,7 @@ const TermsConditions = () => (
         <div>
           <h3 className="font-display text-xl font-semibold text-foreground mb-3">Intellectual Property</h3>
           <p className="text-muted-foreground">
-            All content on this platform — including text, images, design elements, branding, and website architecture — is the intellectual property of Ayodhya Serenity unless otherwise credited. Reproduction without written permission is prohibited.
+            All content on this platform - including text, images, design elements, branding, and website architecture - is the intellectual property of Ayodhya Serenity unless otherwise credited. Reproduction without written permission is prohibited.
           </p>
         </div>
 

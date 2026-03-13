@@ -32,7 +32,7 @@ const SEOHead = ({ title, description, canonical, ogImage, schema }: SEOHeadProp
       <meta name="twitter:image" content={image} />
 
       <meta name="robots" content="index, follow" />
-      <meta name="keywords" content="Ayodhya temples, Ayodhya travel guide, Ayodhya tourism, pilgrimage destinations, sacred places in Ayodhya, spiritual tourism India" />
+      <meta name="keywords" content="Ayodhya Serenity, Ayodhya temples, Ayodhya travel guide, Ayodhya tourism, pilgrimage destinations, sacred places in Ayodhya, spiritual tourism India" />
 
       {schema && (
         <script type="application/ld+json">{JSON.stringify(schema)}</script>

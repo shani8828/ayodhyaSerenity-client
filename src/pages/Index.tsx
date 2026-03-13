@@ -42,7 +42,7 @@ const reviews = [
 const Index = () => (
   <>
     <SEOHead
-      title="Ayodhya Temples, Travel Guide & Spiritual Tourism"
+      title="Ayodhya Serenity"
       description="Ayodhya Serenity is the trusted digital gateway to Ayodhya's temples, landmarks, and sacred destinations. Plan your pilgrimage with verified travel guidance."
       schema={schema}
     />

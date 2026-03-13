@@ -47,7 +47,7 @@ const CopyrightLegal = () => (
           <h3 className="font-display text-xl font-semibold text-foreground mb-3">Reporting Violations</h3>
           <p className="text-muted-foreground">
             If you become aware of any unauthorised use of Ayodhya Serenity content or branding, please report it to{" "}
-            <a href="mailto:legal@ayodhyaserenity.com" className="text-primary hover:underline">legal@ayodhyaserenity.com</a>. We take all reports seriously and will investigate promptly.
+            <a href="mailto:info.ayodhyaserenity@gmail.com" className="text-primary hover:underline">info.ayodhyaserenity@gmail.com</a>. We take all reports seriously and will investigate promptly.
           </p>
         </div>
       </div>

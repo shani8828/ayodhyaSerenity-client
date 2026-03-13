@@ -61,7 +61,7 @@ const PrivacyPolicy = () => (
           <h3 className="font-display text-xl font-semibold text-foreground mb-3">Contact for Privacy Concerns</h3>
           <p className="text-muted-foreground">
             If you have any questions or concerns about our privacy practices, please contact us at{" "}
-            <a href="mailto:privacy@ayodhyaserenity.com" className="text-primary hover:underline">privacy@ayodhyaserenity.com</a>.
+            <a href="mailto:info.ayodhyaserenity@gmail.com" className="text-primary hover:underline">info.ayodhyaserenity@gmail.com</a>.
           </p>
         </div>
       </div>
