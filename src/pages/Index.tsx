@@ -6,9 +6,9 @@ import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import heroImg from "@/assets/hero-ayodhya.jpg";
 import dailyPhoto from "@/assets/daily-photo.jpg";
-import hanumanGarhi from "@/assets/hanuman-garhi.jpg";
-import lataChowk from "@/assets/lata-mangeshkar-chowk.jpg";
-import shravanMandir from "@/assets/shravan-kumar-mandir.jpg";
+import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
+import lataChowk from "/images/lata-mangeshkar-chowk.avif";
+import shravanMandir from "/images/shravan-kumar-mandir.avif";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,9 +28,9 @@ const schema = {
 };
 
 const featuredPlaces = [
-  { name: "Hanuman Garhi", img: hanumanGarhi, desc: "One of the most visited temples in Ayodhya, dedicated to Lord Hanuman, perched atop a hill with 76 steps.", link: "#" },
-  { name: "Lata Mangeshkar Chowk", img: lataChowk, desc: "A beautifully designed landmark chowk honoring the legendary singer, blending modern architecture with tradition.", link: "#" },
-  { name: "Shravan Kumar Mandir", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, a symbol of devotion and filial love.", link: "#" },
+  { name: "Hanuman Garhi", img: hanumanGarhi, desc: "One of the most visited temples in Ayodhya, dedicated to Lord Hanuman, perched atop a hill with 76 steps.", link: "https://hanumangarhi.vercel.app" },
+  { name: "Lata Mangeshkar Chowk", img: lataChowk, desc: "A beautifully designed landmark chowk honoring the legendary singer, blending modern architecture with tradition.", link: "https://latamangeshkarchowk.vercel.app/" },
+  { name: "Shravan Kumar Mandir", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, a symbol of devotion and filial love.", link: "https://shravankumarmandir.vercel.app/" },
 ];
 
 const reviews = [
@@ -99,7 +99,7 @@ const Index = () => (
     </section>
 
     {/* Daily Best Photo */}
-    <section className="section-padding bg-gradient-warm">
+    {/* <section className="section-padding bg-gradient-warm">
       <div className="max-w-5xl mx-auto">
         <SectionHeading
           label="Photo of the Day"
@@ -133,7 +133,7 @@ const Index = () => (
           </Button>
         </div>
       </div>
-    </section>
+    </section> */}
 
     {/* Featured Places */}
     <section className="section-padding bg-background">
@@ -173,7 +173,7 @@ const Index = () => (
           ))}
         </div>
         <div className="text-center mt-10">
-          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 hover:text-primary transition-all duration-300">
             <Link to="/projects">View All Projects <ArrowRight size={16} className="ml-1" /></Link>
           </Button>
         </div>
@@ -193,7 +193,7 @@ const Index = () => (
             { icon: Calendar, title: "Best Time to Visit", desc: "October to March offers pleasant weather. Major festivals like Ram Navami and Diwali attract millions of devotees." },
             { icon: MapPin, title: "Getting There", desc: "Ayodhya is well connected by rail (Ayodhya Junction), road (NH-27), and the new Maharishi Valmiki International Airport." },
             { icon: Star, title: "Temple Etiquette", desc: "Dress modestly, remove footwear before entering temples, maintain silence in prayer halls, and follow local customs." },
-            { icon: Users, title: "Nearby Landmarks", desc: "Explore Faizabad, Lucknow (130km), and other pilgrimage sites like Naimisharanya and Chitrakoot." },
+            { icon: Users, title: "Nearby Landmarks", desc: "Explore Ayodhya, Lucknow (130km), and other pilgrimage sites like Naimisharanya and Chitrakoot." },
           ].map((item, i) => (
             <motion.div
               key={item.title}
@@ -202,7 +202,7 @@ const Index = () => (
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="bg-background rounded-xl p-6 shadow-sm"
+              className="bg-background rounded-xl p-6 shadow-sm border border-border hover:border-primary transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <item.icon size={24} className="text-primary" />
@@ -232,7 +232,7 @@ const Index = () => (
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="bg-card rounded-xl p-6 shadow-sm"
+              className="bg-card rounded-xl p-6 shadow-sm border hover:border-primary transition-all duration-300"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: r.rating }).map((_, j) => (
@@ -256,7 +256,7 @@ const Index = () => (
           subtitle="We welcome partnerships with temple trusts, tourism organizations, historians, photographers, and cultural preservationists."
         />
         <p className="text-muted-foreground leading-relaxed mb-8">
-          Whether you represent a temple trust seeking digital presence, a tourism board looking to promote Ayodhya, or a historian passionate about preserving sacred heritage — we'd love to work together to build something meaningful.
+          Whether you represent a temple trust seeking digital presence, a tourism board looking to promote Ayodhya, or a historian passionate about preserving sacred heritage - we'd love to work together to build something meaningful.
         </p>
         <Button asChild size="lg" className="bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold px-8">
           <Link to="/contact">Collaborate With Us <ArrowRight size={16} className="ml-2" /></Link>
@@ -272,8 +272,8 @@ const Index = () => (
           title="Hire Our Developers"
           subtitle="Our team builds beautiful, purpose-driven websites for temples, travel portals, digital archives, and tourism platforms."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {["Temple Websites", "Travel Portals", "Digital Archives", "Tourism Platforms"].map((s, i) => (
+        <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+          {["Temple Websites", "Travel Portals", "Digital Archives", "Tourism Platforms", "Others"].map((s, i) => (
             <motion.div
               key={s}
               custom={i}
@@ -288,8 +288,18 @@ const Index = () => (
             </motion.div>
           ))}
         </div>
-        <Button asChild size="lg" className="bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold px-8">
-          <Link to="/contact">Build Your Website With Our Team <ArrowRight size={16} className="ml-2" /></Link>
+        <Button
+          asChild
+          size="lg"
+          className="bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold px-4 md:px-8 w-full md:w-auto"
+        >
+          <Link to="/contact" className="flex items-center justify-center">
+            {/* This text shows on mobile only */}
+            <span className="md:hidden">Hire Developers</span>
+            {/* This text shows on desktop (md and up) only */}
+            <span className="hidden md:inline">Build Your Website With Our Team</span>
+            <ArrowRight size={16} className="ml-2 flex-shrink-0" />
+          </Link>
         </Button>
       </div>
     </section>
