@@ -4,7 +4,7 @@ import { MapPin, Calendar, Star, Users, Code, ShieldCheck, Camera, ArrowRight, H
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
-import heroImg from "@/assets/hero-ayodhya.jpg";
+import heroImg from "/images/hero-ayodhya.avif";
 import dailyPhoto from "@/assets/daily-photo.jpg";
 import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
 import lataChowk from "/images/lata-mangeshkar-chowk.avif";

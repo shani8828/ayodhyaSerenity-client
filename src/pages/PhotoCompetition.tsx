@@ -3,9 +3,9 @@ import { Camera, Trophy, Upload, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
-import dailyPhoto from "@/assets/daily-photo.jpg";
-import hanumanGarhi from "@/assets/hanuman-garhi.jpg";
-import shravanMandir from "@/assets/shravan-kumar-mandir.jpg";
+import dailyPhoto from "/images/daily-photo.avif";
+import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
+import shravanMandir from "/images/shravan-kumar-mandir.avif";
 
 const gallery = [
   { img: dailyPhoto, title: "Golden Dawn at the Sarayu", by: "Arvind Mehta", votes: 247 },
