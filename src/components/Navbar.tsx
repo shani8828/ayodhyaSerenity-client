@@ -56,7 +56,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-background border-b border-border px-4 pb-4">
+        <div className="lg:hidden bg-background border-b border-border px-2 pb-4 pt-2">
           {navLinks.map((l) => (
             <Link
               key={l.to}
