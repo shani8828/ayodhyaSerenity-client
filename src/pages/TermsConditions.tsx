@@ -2,7 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 
 const TermsConditions = () => (
-  <main className="pt-20">
+  <main className="pt-16">
     <SEOHead
       title="Terms & Conditions"
       description="Read the terms and conditions governing the use of Ayodhya Serenity and its ecosystem of verified temple and landmark platforms."

@@ -23,7 +23,7 @@ const TrustBadge = () => {
         canonical="https://ayodhyaserenity.com/trust-badge"
       />
 
-      <main className="pt-20">
+      <main className="pt-16">
         <section className="section-padding bg-gradient-warm">
           <SectionHeading
             label="Trust Program"

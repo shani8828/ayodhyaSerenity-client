@@ -2,7 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 
 const CopyrightLegal = () => (
-  <main className="pt-20">
+  <main className="pt-16">
     <SEOHead
       title="Copyright & Legal Protection"
       description="Ayodhya Serenity's copyright ownership, intellectual property protections, and legal enforcement policies for its digital ecosystem."

@@ -32,7 +32,7 @@ const Contact = () => {
         canonical="https://ayodhyaserenity.com/contact"
       />
 
-      <main className="pt-20">
+      <main className="pt-16">
         <section className="section-padding bg-gradient-warm">
           <SectionHeading
             label="Get in Touch"

@@ -10,7 +10,7 @@ const About = () => (
       canonical="https://ayodhyaserenity.com/about"
     />
 
-    <main className="pt-20">
+    <main className="pt-16">
       <section className="section-padding bg-gradient-warm">
         <div className="max-w-4xl mx-auto text-center">
           <SectionHeading

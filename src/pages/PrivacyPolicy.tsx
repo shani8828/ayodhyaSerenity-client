@@ -2,7 +2,7 @@ import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 
 const PrivacyPolicy = () => (
-  <main className="pt-20">
+  <main className="pt-16">
     <SEOHead
       title="Privacy Policy"
       description="Learn how Ayodhya Serenity collects, uses, and protects your personal information. Read our privacy practices for visitors and contributors."

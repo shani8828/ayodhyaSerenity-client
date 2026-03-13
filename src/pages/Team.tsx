@@ -20,7 +20,7 @@ const Team = () => (
       canonical="https://ayodhyaserenity.com/team"
     />
 
-    <main className="pt-20">
+    <main className="pt-16">
       <section className="section-padding bg-gradient-warm">
         <SectionHeading label="Our People" title="The Team Behind Ayodhya Serenity" subtitle="A diverse team united by passion for Ayodhya's heritage." />
       </section>

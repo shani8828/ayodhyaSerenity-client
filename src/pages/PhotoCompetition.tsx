@@ -21,7 +21,7 @@ const PhotoCompetition = () => (
       canonical="https://ayodhyaserenity.com/photo-competition"
     />
 
-    <main className="pt-20">
+    <main className="pt-16">
       <section className="section-padding bg-gradient-warm">
         <SectionHeading
           label="Photography"
