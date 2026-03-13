@@ -18,6 +18,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import CopyrightLegal from "./pages/CopyrightLegal";
 import NotFound from "./pages/NotFound";
+import RamNaamClick from "./components/RamNaamClick";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <RamNaamClick/>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
