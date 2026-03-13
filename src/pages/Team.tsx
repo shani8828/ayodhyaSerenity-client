@@ -41,11 +41,11 @@ const Team = () => (
               </div>
               <h3 className="font-display text-xl font-bold mb-2">{t.title}</h3>
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{t.desc}</p>
-              {/* <ul className="space-y-1">
+              <ul className="space-y-1">
                 {t.members.map((m) => (
                   <li key={m} className="text-sm text-foreground/80">• {m}</li>
                 ))}
-              </ul> */}
+              </ul>
             </motion.div>
           ))}
         </div>

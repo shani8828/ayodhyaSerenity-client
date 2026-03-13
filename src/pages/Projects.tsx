@@ -3,9 +3,9 @@ import { ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
-import hanumanGarhi from "@/assets/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.jpg";
-import lataChowk from "@/assets/lata-mangeshkar-chowk.jpg";
-import shravanMandir from "@/assets/shravan-kumar-mandir.jpg";
+import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
+import lataChowk from "/images/lata-mangeshkar-chowk.avif";
+import shravanMandir from "/images/shravan-kumar-mandir.avif";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [loaded, setLoaded] = useState({});
   return (
     <>
       <SEOHead
@@ -46,28 +46,23 @@ const Projects = () => {
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px"  }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
               >
                 <div className="relative overflow-hidden h-48 bg-muted">
                   {/* Skeleton Placeholder */}
-                  {!isLoaded && (
-                    <div className="absolute inset-0 z-10 animate-pulse bg-neutral-200 dark:bg-neutral-800">
-                      {/* Optional: Add a subtle shimmer gradient here */}
-                      <div className="w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
-                    </div>
+                  {!loaded[p.name] && (
+                    <div className="absolute inset-0 animate-pulse bg-neutral-200 dark:bg-neutral-800" />
                   )}
 
                   <img
                     src={p.img}
-                    alt={p.name}
-                    onLoad={() => setIsLoaded(true)}
                     loading="lazy"
-                    className={`
-            w-full h-full object-cover group-hover:scale-105 transition-all duration-500
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
-          `}
+                    decoding="async"
+                    onLoad={() => setLoaded(prev => ({ ...prev, [p.name]: true }))}
+                    className={`w-full h-full object-cover transition-opacity duration-500
+  ${loaded[p.name] ? "opacity-100" : "opacity-0"}`}
                   />
                 </div>
                 <div className="p-5">
