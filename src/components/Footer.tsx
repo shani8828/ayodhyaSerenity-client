@@ -71,6 +71,8 @@ const Footer = () => (
         <Link to="/terms-and-conditions" className="hover:opacity-100 transition-opacity link-underline">Terms & Conditions</Link>
         <span>·</span>
         <Link to="/copyright-legal" className="hover:opacity-100 transition-opacity link-underline">Copyright & Legal Protection</Link>
+        <span>·</span>
+        <Link to="/site-map" className="hover:opacity-100 transition-opacity link-underline">Site Map</Link>
       </div>
       <div className="mt-10 border-primary-foreground/20 w-full flex justify-center items-center">
         <div className="flex w-full justify-center items-center gap-4 text-xs opacity-60">
