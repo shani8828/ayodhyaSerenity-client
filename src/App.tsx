@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import CopyrightLegal from "./pages/CopyrightLegal";
+import SiteMap from "./pages/SiteMap";
 import NotFound from "./pages/NotFound";
 import RamNaamClick from "./components/RamNaamClick";
 
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsConditions />} />
             <Route path="/copyright-legal" element={<CopyrightLegal />} />
+            <Route path="/site-map" element={<SiteMap />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
