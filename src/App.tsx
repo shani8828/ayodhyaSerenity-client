@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import CopyrightLegal from "./pages/CopyrightLegal";
+import SiteMap from "./pages/SiteMap";
 import NotFound from "./pages/NotFound";
 import RamNaamClick from "./components/RamNaamClick";
 
