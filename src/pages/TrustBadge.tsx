@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, CheckCircle, ArrowRight } from "lucide-react";
+import { ShieldCheck, CheckCircle, ArrowRight, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner"; // 1. Import toast
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,18 +11,45 @@ import SectionHeading from "@/components/SectionHeading";
 
 const TrustBadge = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!form.current) return;
+
+    setLoading(true);
+
+    // 2. Use toast.promise to handle all states at once
+    const promise = emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_badgeTrust,
+      form.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    toast.promise(promise, {
+      loading: 'Sending your application...',
+      success: () => {
+        setSubmitted(true);
+        return 'Application submitted successfully!';
+      },
+      error: (err) => {
+        setLoading(false);
+        return 'Failed to send application. Please try again.';
+      },
+    });
+
+    // We still manage the loading state for the button UX
+    promise.finally(() => setLoading(false));
   };
 
   return (
     <>
       <SEOHead
         title="Trust Badge Program - Verified by Ayodhya Serenity"
-        description="Apply for the Ayodhya Serenity Trust Badge to display verified authenticity on your website. Join our trusted network of Ayodhya information providers."
-        canonical="https://ayodhyaserenity.com/trust-badge"
+        description="Apply for the Ayodhya Serenity Trust Badge to display verified authenticity on your website."
+        canonical="https://ayodhyaserenity.vercel.app/trust-badge"
       />
 
       <main className="pt-16">
@@ -55,13 +84,13 @@ const TrustBadge = () => {
 
                 <h3 className="font-display text-2xl font-bold mt-10 mb-4">Eligibility</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  Websites providing information about Ayodhya's temples, landmarks, travel, or cultural heritage are eligible. We review each application for accuracy, content quality, and alignment with our mission of authentic information.
+                  Websites providing information about Ayodhya's temples, landmarks, travel, or cultural heritage are eligible. We review each application for accuracy and authenticity.
                 </p>
                 <div className="flex items-center gap-3 bg-card rounded-lg p-4">
                   <ShieldCheck size={32} className="text-primary" />
                   <div>
                     <p className="font-semibold text-sm">Review Process</p>
-                    <p className="text-xs text-muted-foreground">Applications are reviewed within 7 business days by our verification team.</p>
+                    <p className="text-xs text-muted-foreground">Applications are reviewed within 7 business days.</p>
                   </div>
                 </div>
               </div>
@@ -77,27 +106,43 @@ const TrustBadge = () => {
                     <CheckCircle size={48} className="text-primary mx-auto mb-4" />
                     <h4 className="font-display text-xl font-bold mb-2">Application Submitted!</h4>
                     <p className="text-muted-foreground text-sm">We'll review your application and get back to you within 7 business days.</p>
+                    <Button 
+                      variant="outline" 
+                      className="mt-6" 
+                      onClick={() => setSubmitted(false)}
+                    >
+                      Submit Another
+                    </Button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4 bg-card rounded-xl p-6 shadow-sm">
+                  <form ref={form} onSubmit={handleSubmit} className="space-y-4 bg-card rounded-xl p-6 shadow-sm">
                     <div>
                       <label className="text-sm font-medium mb-1 block">Website Name</label>
-                      <Input placeholder="Your website name" required />
+                      <Input name="website_name" placeholder="Your website name" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-1 block">Website URL</label>
-                      <Input type="url" placeholder="https://your-website.com" required />
+                      <Input name="website_url" type="url" placeholder="https://your-website.com" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-1 block">Contact Email</label>
-                      <Input type="email" placeholder="you@example.com" required />
+                      <Input name="contact_email" type="email" placeholder="you@example.com" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-1 block">Description</label>
-                      <Textarea placeholder="Tell us about your website and its connection to Ayodhya..." rows={4} required />
+                      <Textarea name="description" placeholder="Tell us about your website..." rows={4} required />
                     </div>
-                    <Button type="submit" size="lg" className="w-full bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold">
-                      Submit Application <ArrowRight size={16} className="ml-2" />
+                    <Button 
+                      type="submit" 
+                      disabled={loading}
+                      size="lg" 
+                      className="w-full bg-gradient-saffron text-primary-foreground hover:opacity-90 hover:scale-[1.02] font-semibold transition-all duration-300"
+                    >
+                      {loading ? (
+                        <>Sending... <Loader2 className="ml-2 h-4 w-4 animate-spin" /></>
+                      ) : (
+                        <>Submit Application <ArrowRight size={16} className="ml-2" /></>
+                      )}
                     </Button>
                   </form>
                 )}

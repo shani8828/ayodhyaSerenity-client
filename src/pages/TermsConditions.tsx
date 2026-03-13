@@ -6,7 +6,7 @@ const TermsConditions = () => (
     <SEOHead
       title="Terms & Conditions"
       description="Read the terms and conditions governing the use of Ayodhya Serenity and its ecosystem of verified temple and landmark platforms."
-      canonical="https://ayodhyaserenity.com/terms-and-conditions"
+      canonical="https://ayodhyaserenity.vercel.app/terms-and-conditions"
     />
 
     <section className="section-padding max-w-4xl mx-auto">

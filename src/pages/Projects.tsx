@@ -7,6 +7,7 @@ import hanumanGarhi from "@/assets/Hanuman_Garhi_Temple,_a_major_religious_site_
 import lataChowk from "@/assets/lata-mangeshkar-chowk.jpg";
 import shravanMandir from "@/assets/shravan-kumar-mandir.jpg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const projects = [
   { name: "Hanuman Garhi", location: "Ayodhya, Uttar Pradesh", img: hanumanGarhi, desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.", link: "https://hanumangarhi.vercel.app", verified: true },
@@ -17,56 +18,76 @@ const projects = [
   // { name: "Nageshwarnath Temple", location: "Ayodhya, Uttar Pradesh", img: shravanMandir, desc: "An ancient temple dedicated to Lord Shiva, believed to have been established by Kush, the son of Lord Rama.", link: "#", verified: true },
 ];
 
-const Projects = () => (
-  <>
-    <SEOHead
-      title="Our Projects - Verified Ayodhya Serenity Websites"
-      description="Explore all websites and digital platforms created by Ayodhya Serenity for Ayodhya's temples, landmarks, and sacred destinations."
-      canonical="https://ayodhyaserenity.com/projects"
-    />
+const Projects = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <>
+      <SEOHead
+        title="Our Projects - Verified Ayodhya Serenity Websites"
+        description="Explore all websites and digital platforms created by Ayodhya Serenity for Ayodhya's temples, landmarks, and sacred destinations."
+        canonical="https://ayodhyaserenity.vercel.app/projects"
+      />
 
-    <main className="pt-16">
-      <section className="section-padding bg-gradient-warm">
-        <div className="max-w-4xl mx-auto text-center">
-          <SectionHeading
-            label="Our Work"
-            title="All Projects by Ayodhya Serenity"
-            subtitle="Every digital platform we've built for Ayodhya's landmarks - verified, authentic, and trusted."
-          />
-        </div>
-      </section>
+      <main className="pt-16">
+        <section className="section-padding bg-gradient-warm">
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionHeading
+              label="Our Work"
+              title="All Projects by Ayodhya Serenity"
+              subtitle="Every digital platform we've built for Ayodhya's landmarks - verified, authentic, and trusted."
+            />
+          </div>
+        </section>
 
-      <section className="section-padding bg-background">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
-            >
-              <div className="overflow-hidden h-48">
-                <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-display text-lg font-bold">{p.name}</h3>
-                  {p.verified && <ShieldCheck size={18} className="text-primary" />}
+        <section className="section-padding bg-background">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((p, i) => (
+              <motion.article
+                key={p.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              >
+                <div className="relative overflow-hidden h-48 bg-muted">
+                  {/* Skeleton Placeholder */}
+                  {!isLoaded && (
+                    <div className="absolute inset-0 z-10 animate-pulse bg-neutral-200 dark:bg-neutral-800">
+                      {/* Optional: Add a subtle shimmer gradient here */}
+                      <div className="w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]" />
+                    </div>
+                  )}
+
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    onLoad={() => setIsLoaded(true)}
+                    loading="lazy"
+                    className={`
+            w-full h-full object-cover group-hover:scale-105 transition-all duration-500
+            ${isLoaded ? 'opacity-100' : 'opacity-0'}
+          `}
+                  />
                 </div>
-                <p className="text-xs text-muted-foreground mb-2">{p.location}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{p.desc}</p>
-                <Button asChild size="sm" className="bg-gradient-saffron text-primary-foreground hover:translate-x-2  transition-all duration-300">
-                  <Link to={p.link} target="_blank">Visit Website <ArrowRight size={14} className="ml-1" /></Link>
-                </Button>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </section>
-    </main>
-  </>
-);
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-display text-lg font-bold">{p.name}</h3>
+                    {p.verified && <ShieldCheck size={18} className="text-primary" />}
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-2">{p.location}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{p.desc}</p>
+                  <Button asChild size="sm" className="bg-gradient-saffron text-primary-foreground hover:translate-x-2  transition-all duration-300">
+                    <Link to={p.link} target="_blank">Visit Website <ArrowRight size={14} className="ml-1" /></Link>
+                  </Button>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
+  );
+};
 
 export default Projects;

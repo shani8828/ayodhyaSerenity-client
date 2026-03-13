@@ -7,7 +7,7 @@ const About = () => (
     <SEOHead
       title="About Ayodhya Serenity"
       description="Learn about Ayodhya Serenity's mission to preserve and digitally document Ayodhya's sacred temples, landmarks, and spiritual heritage."
-      canonical="https://ayodhyaserenity.com/about"
+      canonical="https://ayodhyaserenity.vercel.app/about"
     />
 
     <main className="pt-16">

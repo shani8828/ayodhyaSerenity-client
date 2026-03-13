@@ -18,7 +18,7 @@ const PhotoCompetition = () => (
     <SEOHead
       title="Photo Competition - Capture Ayodhya's Beauty"
       description="Participate in the Ayodhya Serenity daily photo competition. Upload your best photos of Ayodhya's temples and landmarks to win."
-      canonical="https://ayodhyaserenity.com/photo-competition"
+      canonical="https://ayodhyaserenity.vercel.app/photo-competition"
     />
 
     <main className="pt-16">

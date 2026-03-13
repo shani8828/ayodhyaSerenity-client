@@ -6,7 +6,7 @@ const PrivacyPolicy = () => (
     <SEOHead
       title="Privacy Policy"
       description="Learn how Ayodhya Serenity collects, uses, and protects your personal information. Read our privacy practices for visitors and contributors."
-      canonical="https://ayodhyaserenity.com/privacy-policy"
+      canonical="https://ayodhyaserenity.vercel.app/privacy-policy"
     />
 
     <section className="section-padding max-w-4xl mx-auto">

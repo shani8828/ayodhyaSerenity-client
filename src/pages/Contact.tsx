@@ -29,7 +29,7 @@ const Contact = () => {
       <SEOHead
         title="Contact Ayodhya Serenity"
         description="Get in touch with Ayodhya Serenity for general inquiries, partnerships, collaboration, or website development services."
-        canonical="https://ayodhyaserenity.com/contact"
+        canonical="https://ayodhyaserenity.vercel.app/contact"
       />
 
       <main className="pt-16">

@@ -17,7 +17,7 @@ const Team = () => (
     <SEOHead
       title="Our Team - The People Behind Ayodhya Serenity"
       description="Meet the dedicated team of developers, researchers, photographers, and travel experts behind Ayodhya Serenity."
-      canonical="https://ayodhyaserenity.com/team"
+      canonical="https://ayodhyaserenity.vercel.app/team"
     />
 
     <main className="pt-16">
@@ -34,18 +34,18 @@ const Team = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="bg-card rounded-xl p-6 shadow-sm"
+              className="bg-card rounded-xl p-6 shadow-sm hover:border-orange-500 border transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <t.icon size={24} className="text-primary" />
               </div>
               <h3 className="font-display text-xl font-bold mb-2">{t.title}</h3>
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{t.desc}</p>
-              <ul className="space-y-1">
+              {/* <ul className="space-y-1">
                 {t.members.map((m) => (
                   <li key={m} className="text-sm text-foreground/80">• {m}</li>
                 ))}
-              </ul>
+              </ul> */}
             </motion.div>
           ))}
         </div>

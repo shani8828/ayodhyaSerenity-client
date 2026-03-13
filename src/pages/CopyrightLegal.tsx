@@ -6,7 +6,7 @@ const CopyrightLegal = () => (
     <SEOHead
       title="Copyright & Legal Protection"
       description="Ayodhya Serenity's copyright ownership, intellectual property protections, and legal enforcement policies for its digital ecosystem."
-      canonical="https://ayodhyaserenity.com/copyright-legal"
+      canonical="https://ayodhyaserenity.vercel.app/copyright-legal"
     />
 
     <section className="section-padding max-w-4xl mx-auto">
