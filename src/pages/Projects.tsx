@@ -22,10 +22,10 @@ const Projects = () => {
       <SEOHead
         title="Ayodhya Serenity Projects | Sacred Views of Ayodhya"
         description="Explore all verified temple and landmark websites created by Ayodhya Serenity. Discover sacred views and spiritual destinations across Ayodhya."
-        canonical="https://ayodhyaserenity.com/projects"
+        canonical="https://ayodhyaserenity.vercel.app/projects"
         breadcrumbs={[
-          { name: "Home", url: "https://ayodhyaserenity.com" },
-          { name: "Projects", url: "https://ayodhyaserenity.com/projects" },
+          { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+          { name: "Projects", url: "https://ayodhyaserenity.vercel.app/projects" },
         ]}
       />
 
@@ -34,8 +34,8 @@ const Projects = () => {
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeading
               label="Our Work"
-              title="Ayodhya Serenity – Verified Digital Projects"
-              subtitle="Every digital platform we've built for Ayodhya's landmarks – verified, authentic, and trusted."
+              title="Ayodhya Serenity - Verified Digital Projects"
+              subtitle="Every digital platform we've built for Ayodhya's landmarks - verified, authentic, and trusted."
             />
           </div>
         </section>
