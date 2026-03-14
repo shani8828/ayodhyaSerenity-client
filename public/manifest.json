@@ -1,0 +1,21 @@
+{
+  "name": "Ayodhya Serenity",
+  "short_name": "Ayodhya Serenity",
+  "description": "The trusted digital gateway to Ayodhya's temples, landmarks, and spiritual destinations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dcwwptwzt/image/upload/v1771886440/Logo-bgless_va94cp.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dcwwptwzt/image/upload/v1771886440/Logo-bgless_va94cp.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

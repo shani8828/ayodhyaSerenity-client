@@ -26,28 +26,16 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
-
     setLoading(true);
-
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ContactUs;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    // Using toast.promise to handle all states at once
     toast.promise(
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY),
       {
         loading: "Sending your message...",
-        success: () => {
-          setLoading(false);
-          setSubmitted(true);
-          return "Message sent successfully!";
-        },
-        error: (err) => {
-          setLoading(false);
-          console.error(err);
-          return "Failed to send message. Please try again.";
-        },
+        success: () => { setLoading(false); setSubmitted(true); return "Message sent successfully!"; },
+        error: (err) => { setLoading(false); console.error(err); return "Failed to send message. Please try again."; },
       }
     );
   };
@@ -55,18 +43,19 @@ const Contact = () => {
   const handleTabChange = (key: InquiryType, label: string) => {
     setActiveTab(key);
     setSubmitted(false);
-    toast.info(`Switched to ${label} mode`, {
-      description: "The form has been updated for your selection.",
-      duration: 2000,
-    });
+    toast.info(`Switched to ${label} mode`, { description: "The form has been updated for your selection.", duration: 2000 });
   };
 
   return (
     <>
       <SEOHead
-        title="Contact Ayodhya Serenity"
-        description="Get in touch with Ayodhya Serenity for general inquiries, partnerships, collaboration, or website development services."
-        canonical="https://ayodhyaserenity.vercel.app/contact"
+        title="Contact Ayodhya Serenity | Visit the Divine City"
+        description="Get in touch with Ayodhya Serenity for inquiries, partnerships, or website development. Connect with the most trusted digital platform for Ayodhya."
+        canonical="https://ayodhyaserenity.com/contact"
+        breadcrumbs={[
+          { name: "Home", url: "https://ayodhyaserenity.com" },
+          { name: "Contact", url: "https://ayodhyaserenity.com/contact" },
+        ]}
       />
 
       <main className="pt-16">
@@ -87,83 +76,58 @@ const Contact = () => {
                   type="button"
                   onClick={() => handleTabChange(t.key, t.label)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTab === t.key
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card text-muted-foreground hover:bg-muted"
+                    activeTab === t.key ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-muted"
                   }`}
+                  aria-label={`Select ${t.label} inquiry type`}
                 >
-                  <t.icon size={16} />
+                  <t.icon size={16} aria-hidden="true" />
                   {t.label}
                 </button>
               ))}
             </div>
 
             {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-card rounded-xl p-8 text-center"
-              >
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-card rounded-xl p-8 text-center">
                 <CheckCircle size={48} className="text-primary mx-auto mb-4" />
                 <h3 className="font-display text-xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-muted-foreground text-sm">Thank you for reaching out. We'll get back to you soon.</p>
-                <Button 
-                  variant="outline" 
-                  className="mt-6" 
-                  onClick={() => setSubmitted(false)}
-                >
-                  Send another message
-                </Button>
+                <p className="text-muted-foreground text-sm">Thank you for reaching out to Ayodhya Serenity. We'll get back to you soon.</p>
+                <Button variant="outline" className="mt-6" onClick={() => setSubmitted(false)}>Send another message</Button>
               </motion.div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 bg-card rounded-xl p-6 shadow-sm">
                 <input type="hidden" name="inquiry_type" value={activeTab} />
-                
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium mb-1 block">Name</label>
-                    <Input name="from_name" placeholder="Your name" required />
+                    <label htmlFor="from_name" className="text-sm font-medium mb-1 block">Name</label>
+                    <Input id="from_name" name="from_name" placeholder="Your name" required />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-1 block">Email</label>
-                    <Input name="reply_to" type="email" placeholder="you@example.com" required />
+                    <label htmlFor="reply_to" className="text-sm font-medium mb-1 block">Email</label>
+                    <Input id="reply_to" name="reply_to" type="email" placeholder="you@example.com" required />
                   </div>
                 </div>
-
                 {activeTab === "partnership" && (
                   <div>
-                    <label className="text-sm font-medium mb-1 block">Organization</label>
-                    <Input name="organization" placeholder="Your organization or temple trust" />
+                    <label htmlFor="organization" className="text-sm font-medium mb-1 block">Organization</label>
+                    <Input id="organization" name="organization" placeholder="Your organization or temple trust" />
                   </div>
                 )}
-
                 {activeTab === "development" && (
                   <div>
-                    <label className="text-sm font-medium mb-1 block">Project Type</label>
-                    <Input name="project_type" placeholder="e.g. Temple website, Travel portal, Digital archive" />
+                    <label htmlFor="project_type" className="text-sm font-medium mb-1 block">Project Type</label>
+                    <Input id="project_type" name="project_type" placeholder="e.g. Temple website, Travel portal, Digital archive" />
                   </div>
                 )}
-
                 <div>
-                  <label className="text-sm font-medium mb-1 block">Subject</label>
-                  <Input name="subject" placeholder="Subject of your inquiry" required />
+                  <label htmlFor="subject" className="text-sm font-medium mb-1 block">Subject</label>
+                  <Input id="subject" name="subject" placeholder="Subject of your inquiry" required />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1 block">Message</label>
-                  <Textarea name="message" placeholder="Tell us more..." rows={5} required />
+                  <label htmlFor="message" className="text-sm font-medium mb-1 block">Message</label>
+                  <Textarea id="message" name="message" placeholder="Tell us more..." rows={5} required />
                 </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  disabled={loading}
-                  className="w-full bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold"
-                >
-                  {loading ? (
-                    <Loader2 size={16} className="mr-2 animate-spin" />
-                  ) : (
-                    <Send size={16} className="mr-2" />
-                  )}
+                <Button type="submit" size="lg" disabled={loading} className="w-full bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold">
+                  {loading ? <Loader2 size={16} className="mr-2 animate-spin" /> : <Send size={16} className="mr-2" />}
                   {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
