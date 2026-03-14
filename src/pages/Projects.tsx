@@ -7,7 +7,6 @@ import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_i
 import lataChowk from "/images/lata-mangeshkar-chowk.avif";
 import shravanMandir from "/images/shravan-kumar-mandir.avif";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const projects = [
   { name: "Hanuman Garhi", location: "Ayodhya, Uttar Pradesh", img: hanumanGarhi, desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.", link: "https://hanumangarhi.vercel.app", verified: true },
@@ -19,7 +18,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [loaded, setLoaded] = useState({});
   return (
     <>
       <SEOHead
@@ -46,23 +44,16 @@ const Projects = () => {
                 key={p.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px"  }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="group bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
               >
                 <div className="relative overflow-hidden h-48 bg-muted">
-                  {/* Skeleton Placeholder */}
-                  {!loaded[p.name] && (
-                    <div className="absolute inset-0 animate-pulse bg-neutral-200 dark:bg-neutral-800" />
-                  )}
-
                   <img
                     src={p.img}
                     loading="lazy"
                     decoding="async"
-                    onLoad={() => setLoaded(prev => ({ ...prev, [p.name]: true }))}
-                    className={`w-full h-full object-cover transition-opacity duration-500
-  ${loaded[p.name] ? "opacity-100" : "opacity-0"}`}
+                    className={`w-full h-full object-cover transition-opacity duration-500 opacity-100`}
                   />
                 </div>
                 <div className="p-5">
