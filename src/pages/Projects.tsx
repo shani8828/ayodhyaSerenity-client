@@ -6,15 +6,15 @@ import SectionHeading from "@/components/SectionHeading";
 import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
 import lataChowk from "/images/lata-mangeshkar-chowk.avif";
 import shravanMandir from "/images/shravan-kumar-mandir.avif";
-import siddhPeethHanumanGarhi from "/images/siddh-peeth-hanuman-garhi.avif";
+import siddhPeethHanumanGarhi from "/images/mainEntrance_Sidddh_Peeth_Hanuman_Garhi_Barun_Bazar.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const projects = [
-  { name: "Hanuman Garhi", location: "Ayodhya, Uttar Pradesh", img: hanumanGarhi, desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.", link: "https://hanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity – Hanuman Garhi Temple hilltop view in Ayodhya" },
-  { name: "Lata Mangeshkar Chowk", location: "Ayodhya, Uttar Pradesh", img: lataChowk, desc: "A beautifully designed landmark chowk in the heart of Ayodhya, honoring India's legendary singer Lata Mangeshkar.", link: "https://latamangeshkarchowk.vercel.app/", verified: true, alt: "Ayodhya Serenity – Lata Mangeshkar Chowk modern landmark in Ayodhya" },
-  { name: "Shravan Kumar Mandir", location: "Ayodhya, Uttar Pradesh", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, known for his unparalleled devotion to his parents.", link: "https://shravankumarmandir.vercel.app/", verified: true, alt: "Ayodhya Serenity – Shravan Kumar Mandir sacred shrine in Ayodhya" },
-  { name: "Siddh Peeth Hanuman Garhi Mandir Barun Bazar", location: "Ayodhya, Uttar Pradesh", img: siddhPeethHanumanGarhi, desc: "This website is a digital platform dedicated to the sacred Siddh Peeth Hanuman Garhi Mandir located in Barun Bazar, Ayodhya. It provides devotees and travelers with information about the temple's spiritual importance, visiting details, nearby attractions, and cultural heritage.", link: "https://siddhpeethhanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity – Siddh Peeth Hanuman Garhi Mandir Barun Bazar temple in Ayodhya" },
+  { name: "Hanuman Garhi", location: "Ayodhya, Uttar Pradesh", img: hanumanGarhi, desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.", link: "https://hanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity - Hanuman Garhi Temple hilltop view in Ayodhya" },
+  { name: "Lata Mangeshkar Chowk", location: "Ayodhya, Uttar Pradesh", img: lataChowk, desc: "A beautifully designed landmark chowk in the heart of Ayodhya, honoring India's legendary singer Lata Mangeshkar.", link: "https://latamangeshkarchowk.vercel.app/", verified: true, alt: "Ayodhya Serenity - Lata Mangeshkar Chowk modern landmark in Ayodhya" },
+  { name: "Shravan Kumar Mandir", location: "Ayodhya, Uttar Pradesh", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, known for his unparalleled devotion to his parents.", link: "https://shravankumarmandir.vercel.app/", verified: true, alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya" },
+  { name: "Siddh Peeth Hanuman Garhi, Barun Bazar", location: "Ayodhya, Uttar Pradesh", img: siddhPeethHanumanGarhi, desc: "A sacred Siddh Peeth in Barun Bazar, Ayodhya, dedicated to Lord Hanuman. Renowned for its ancient sanctity and fulfilling prayers, it's a vital spiritual landmark.", link: "https://siddhpeethhanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity - Siddh Peeth Hanuman Garhi Mandir Barun Bazar temple in Ayodhya" },
 ];
 
 const Projects = () => {
