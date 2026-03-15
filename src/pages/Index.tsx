@@ -21,16 +21,16 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ayodhya Serenity",
-  url: "https://ayodhyaserenity.com",
+  url: "https://ayodhyaserenity.vercel.app",
   description: "The trusted digital gateway to Ayodhya's temples, landmarks, and spiritual destinations.",
   address: { "@type": "PostalAddress", addressLocality: "Ayodhya", addressRegion: "Uttar Pradesh", addressCountry: "IN" },
   sameAs: [],
 };
 
 const featuredPlaces = [
-  { name: "Hanuman Garhi", img: hanumanGarhi, desc: "One of the most visited temples in Ayodhya, dedicated to Lord Hanuman, perched atop a hill with 76 steps.", link: "https://hanumangarhi.vercel.app", alt: "Ayodhya Serenity – Hanuman Garhi Temple hilltop view in Ayodhya" },
-  { name: "Lata Mangeshkar Chowk", img: lataChowk, desc: "A beautifully designed landmark chowk honoring the legendary singer, blending modern architecture with tradition.", link: "https://latamangeshkarchowk.vercel.app/", alt: "Ayodhya Serenity – Lata Mangeshkar Chowk landmark in Ayodhya" },
-  { name: "Shravan Kumar Mandir", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, a symbol of devotion and filial love.", link: "https://shravankumarmandir.vercel.app/", alt: "Ayodhya Serenity – Shravan Kumar Mandir sacred shrine in Ayodhya" },
+  { name: "Hanuman Garhi", img: hanumanGarhi, desc: "One of the most visited temples in Ayodhya, dedicated to Lord Hanuman, perched atop a hill with 76 steps.", link: "https://hanumangarhi.vercel.app", alt: "Ayodhya Serenity - Hanuman Garhi Temple hilltop view in Ayodhya" },
+  { name: "Lata Mangeshkar Chowk", img: lataChowk, desc: "A beautifully designed landmark chowk honoring the legendary singer, blending modern architecture with tradition.", link: "https://latamangeshkarchowk.vercel.app/", alt: "Ayodhya Serenity - Lata Mangeshkar Chowk landmark in Ayodhya" },
+  { name: "Shravan Kumar Mandir", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, a symbol of devotion and filial love.", link: "https://shravankumarmandir.vercel.app/", alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya" },
 ];
 
 const reviews = [
@@ -41,7 +41,7 @@ const reviews = [
 
 const faq = [
   { question: "What is Ayodhya Serenity?", answer: "Ayodhya Serenity is the trusted digital gateway to Ayodhya, providing verified information about temples, landmarks, and spiritual destinations for pilgrims and travelers." },
-  { question: "Where is Ayodhya Serenity located?", answer: "Ayodhya Serenity is based in Ayodhya, Uttar Pradesh, India – the ancient holy city and birthplace of Lord Rama." },
+  { question: "Where is Ayodhya Serenity located?", answer: "Ayodhya Serenity is based in Ayodhya, Uttar Pradesh, India - the ancient holy city and birthplace of Lord Rama." },
   { question: "Why visit Ayodhya Serenity?", answer: "Ayodhya Serenity provides the most comprehensive, verified, and authentic digital guide to Ayodhya's temples, sacred sites, travel routes, and cultural heritage." },
   { question: "How can I plan my visit to Ayodhya?", answer: "Use Ayodhya Serenity's travel guide section for best visiting times, transport options, temple etiquette, and nearby landmarks to plan a meaningful pilgrimage." },
 ];
@@ -49,17 +49,17 @@ const faq = [
 const Index = () => (
   <>
     <SEOHead
-      title="Ayodhya Serenity – Peaceful Spiritual Retreat in Ayodhya"
+      title="Ayodhya Serenity - Peaceful Spiritual Retreat in Ayodhya"
       description="Experience divine peace at Ayodhya Serenity. Discover spiritual calm, sacred surroundings, and a peaceful retreat in the holy city of Ayodhya."
       schema={schema}
-      canonical="https://ayodhyaserenity.com"
-      breadcrumbs={[{ name: "Home", url: "https://ayodhyaserenity.com" }]}
+      canonical="https://ayodhyaserenity.vercel.app"
+      breadcrumbs={[{ name: "Home", url: "https://ayodhyaserenity.vercel.app" }]}
       faq={faq}
     />
 
     {/* Hero */}
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      <img src={heroImg} alt="Ayodhya Serenity – temples at golden sunset along the Sarayu river in Ayodhya" title="Ayodhya Serenity spiritual retreat view" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden gap-y-20">
+      <img src={heroImg} alt="Ayodhya Serenity - temples at golden sunset along the Sarayu river in Ayodhya" title="Ayodhya Serenity spiritual retreat view" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="relative z-10 text-center px-4 max-w-4xl">
         <motion.h1
@@ -68,15 +68,16 @@ const Index = () => (
           transition={{ duration: 0.7 }}
           className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6"
         >
-          Ayodhya Serenity – Experience Spiritual Peace
+          Ayodhya Serenity
         </motion.h1>
+        <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-foreground italic leading-tight mb-6" >Divine Echoes, Timeless Peace</h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          The Trusted Digital Gateway to Ayodhya – delivering verified information, travel guidance, and authentic digital experiences for temples, spiritual landmarks, and cultural sites.
+          The Trusted Digital Gateway to Ayodhya - delivering verified information, travel guidance, and authentic digital experiences for temples, spiritual landmarks, and cultural sites.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -131,7 +132,7 @@ const Index = () => (
                 <img
                   src={place.img}
                   alt={place.alt}
-                  title={`${place.name} – Ayodhya Serenity verified landmark`}
+                  title={`${place.name} - Ayodhya Serenity verified landmark`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
