@@ -5,9 +5,7 @@ import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import heroImg from "/images/hero-ayodhya.avif";
-import hanumanGarhi from "/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif";
-import lataChowk from "/images/lata-mangeshkar-chowk.avif";
-import shravanMandir from "/images/shravan-kumar-mandir.avif";
+import featuredPlaces from "@/data/projects";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -26,12 +24,6 @@ const schema = {
   address: { "@type": "PostalAddress", addressLocality: "Ayodhya", addressRegion: "Uttar Pradesh", addressCountry: "IN" },
   sameAs: [],
 };
-
-const featuredPlaces = [
-  { name: "Hanuman Garhi", img: hanumanGarhi, desc: "One of the most visited temples in Ayodhya, dedicated to Lord Hanuman, perched atop a hill with 76 steps.", link: "https://hanumangarhi.vercel.app", alt: "Ayodhya Serenity - Hanuman Garhi Temple hilltop view in Ayodhya" },
-  { name: "Lata Mangeshkar Chowk", img: lataChowk, desc: "A beautifully designed landmark chowk honoring the legendary singer, blending modern architecture with tradition.", link: "https://latamangeshkarchowk.vercel.app/", alt: "Ayodhya Serenity - Lata Mangeshkar Chowk landmark in Ayodhya" },
-  { name: "Shravan Kumar Mandir", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, a symbol of devotion and filial love.", link: "https://shravankumarmandir.vercel.app/", alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya" },
-];
 
 const reviews = [
   { name: "Priya Sharma", text: "Ayodhya Serenity made my pilgrimage so much easier. Verified information I could trust completely.", rating: 5 },
@@ -118,7 +110,7 @@ const Index = () => (
           subtitle="Explore the verified digital platforms we've built for Ayodhya's most iconic landmarks."
         />
         <div className="grid md:grid-cols-3 gap-8">
-          {featuredPlaces.map((place, i) => (
+          {featuredPlaces.slice(0, 3).map((place, i) => (
             <motion.article
               key={place.name}
               custom={i}
