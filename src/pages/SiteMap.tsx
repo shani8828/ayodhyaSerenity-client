@@ -20,10 +20,10 @@ const SiteMap = () => (
     <SEOHead
       title="Ayodhya Serenity Site Map | All Pages"
       description="Browse the complete site map of Ayodhya Serenity. Find every page including temples, travel guides, and legal information about Ayodhya."
-      canonical="https://ayodhyaserenity.com/site-map"
+      canonical="https://ayodhyaserenity.vercel.app/site-map"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Site Map", url: "https://ayodhyaserenity.com/site-map" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Site Map", url: "https://ayodhyaserenity.vercel.app/site-map" },
       ]}
     />
 

@@ -7,10 +7,10 @@ const TermsConditions = () => (
     <SEOHead
       title="Ayodhya Serenity Terms & Conditions | Usage Policy"
       description="Read the terms and conditions governing the use of Ayodhya Serenity and its ecosystem of verified temple and landmark platforms in Ayodhya."
-      canonical="https://ayodhyaserenity.com/terms-and-conditions"
+      canonical="https://ayodhyaserenity.vercel.app/terms-and-conditions"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Terms & Conditions", url: "https://ayodhyaserenity.com/terms-and-conditions" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Terms & Conditions", url: "https://ayodhyaserenity.vercel.app/terms-and-conditions" },
       ]}
     />
 

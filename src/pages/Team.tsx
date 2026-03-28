@@ -18,10 +18,10 @@ const Team = () => (
     <SEOHead
       title="Ayodhya Serenity Team | People Behind the Vision"
       description="Meet the dedicated team of developers, researchers, photographers, and travel experts powering Ayodhya Serenity's digital heritage mission."
-      canonical="https://ayodhyaserenity.com/team"
+      canonical="https://ayodhyaserenity.vercel.app/team"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Our Team", url: "https://ayodhyaserenity.com/team" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Our Team", url: "https://ayodhyaserenity.vercel.app/team" },
       ]}
     />
 

@@ -7,10 +7,10 @@ const CopyrightLegal = () => (
     <SEOHead
       title="Ayodhya Serenity Copyright & Legal | IP Protection"
       description="Ayodhya Serenity's copyright ownership, intellectual property protections, and legal enforcement policies for its digital ecosystem in Ayodhya."
-      canonical="https://ayodhyaserenity.com/copyright-legal"
+      canonical="https://ayodhyaserenity.vercel.app/copyright-legal"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Copyright & Legal", url: "https://ayodhyaserenity.com/copyright-legal" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Copyright & Legal", url: "https://ayodhyaserenity.vercel.app/copyright-legal" },
       ]}
     />
 

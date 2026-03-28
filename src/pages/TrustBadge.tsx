@@ -38,10 +38,10 @@ const TrustBadge = () => {
       <SEOHead
         title="Ayodhya Serenity Trust Badge | Get Verified"
         description="Apply for the 'Verified by Ayodhya Serenity' trust badge. Join the network of authenticated Ayodhya temple and landmark information providers."
-        canonical="https://ayodhyaserenity.com/trust-badge"
+        canonical="https://ayodhyaserenity.vercel.app/trust-badge"
         breadcrumbs={[
-          { name: "Home", url: "https://ayodhyaserenity.com" },
-          { name: "Trust Badge", url: "https://ayodhyaserenity.com/trust-badge" },
+          { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+          { name: "Trust Badge", url: "https://ayodhyaserenity.vercel.app/trust-badge" },
         ]}
       />
 

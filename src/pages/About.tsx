@@ -8,10 +8,10 @@ const About = () => (
     <SEOHead
       title="About Ayodhya Serenity | Spiritual Retreat Experience"
       description="Discover the vision and mission behind Ayodhya Serenity. Learn how we preserve Ayodhya's sacred temples and spiritual heritage digitally."
-      canonical="https://ayodhyaserenity.com/about"
+      canonical="https://ayodhyaserenity.vercel.app/about"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "About Ayodhya Serenity", url: "https://ayodhyaserenity.com/about" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "About Ayodhya Serenity", url: "https://ayodhyaserenity.vercel.app/about" },
       ]}
     />
 

@@ -19,10 +19,10 @@ const PhotoCompetition = () => (
     <SEOHead
       title="Ayodhya Serenity Photo Competition | Capture Ayodhya"
       description="Participate in the Ayodhya Serenity photo competition. Upload your best photos of Ayodhya's temples and sacred landmarks to win recognition."
-      canonical="https://ayodhyaserenity.com/photo-competition"
+      canonical="https://ayodhyaserenity.vercel.app/photo-competition"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Photo Competition", url: "https://ayodhyaserenity.com/photo-competition" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Photo Competition", url: "https://ayodhyaserenity.vercel.app/photo-competition" },
       ]}
     />
 

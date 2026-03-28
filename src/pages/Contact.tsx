@@ -51,10 +51,10 @@ const Contact = () => {
       <SEOHead
         title="Contact Ayodhya Serenity | Visit the Divine City"
         description="Get in touch with Ayodhya Serenity for inquiries, partnerships, or website development. Connect with the most trusted digital platform for Ayodhya."
-        canonical="https://ayodhyaserenity.com/contact"
+        canonical="https://ayodhyaserenity.vercel.app/contact"
         breadcrumbs={[
-          { name: "Home", url: "https://ayodhyaserenity.com" },
-          { name: "Contact", url: "https://ayodhyaserenity.com/contact" },
+          { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+          { name: "Contact", url: "https://ayodhyaserenity.vercel.app/contact" },
         ]}
       />
 

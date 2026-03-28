@@ -7,10 +7,10 @@ const PrivacyPolicy = () => (
     <SEOHead
       title="Ayodhya Serenity Privacy Policy | Data Protection"
       description="Learn how Ayodhya Serenity collects, uses, and protects your personal information. Our privacy practices for visitors and contributors."
-      canonical="https://ayodhyaserenity.com/privacy-policy"
+      canonical="https://ayodhyaserenity.vercel.app/privacy-policy"
       breadcrumbs={[
-        { name: "Home", url: "https://ayodhyaserenity.com" },
-        { name: "Privacy Policy", url: "https://ayodhyaserenity.com/privacy-policy" },
+        { name: "Home", url: "https://ayodhyaserenity.vercel.app" },
+        { name: "Privacy Policy", url: "https://ayodhyaserenity.vercel.app/privacy-policy" },
       ]}
     />
 
