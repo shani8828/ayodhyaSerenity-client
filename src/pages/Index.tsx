@@ -75,12 +75,23 @@ const Index = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button asChild size="lg" className="bg-gradient-saffron hover:opacity-90 text-primary-foreground font-semibold px-8">
+          {/* Primary Action */}
+          <Button
+            asChild
+            size="lg"
+            className="bg-gradient-saffron hover:opacity-90 text-primary-foreground font-semibold px-8 shadow-lg active:scale-95 transition-transform"
+          >
             <Link to="/projects">Explore Ayodhya</Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground bg-primary/10 hover:bg-primary-foreground/30 font-semibold px-8">
+          {/* Secondary Action */}
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-white/40 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 font-semibold px-8 active:scale-95 transition-all"
+          >
             <a href="#plan-visit">Plan Your Visit</a>
           </Button>
         </motion.div>
