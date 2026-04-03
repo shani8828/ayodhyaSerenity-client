@@ -14,7 +14,7 @@
 
 ---
 
-## ✦  Project Highlights (Resume Details)
+## ✦  Project Highlights
 
 ### **Ayodhya Serenity Master Project & Ayodhya Sarthi AI**
 *Full-Stack Ecosystem & Intelligent Tourist Agent | MERN Stack, TypeScript, OpenAI SDK*
