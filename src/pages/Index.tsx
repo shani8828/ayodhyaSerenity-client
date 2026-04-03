@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import heroImg from "/images/hero-ayodhya.avif";
-import featuredPlaces from "@/data/projects";
+import { temples, landmarks, ghats } from "@/data/projects";
+
+const displayProjects = [temples[0], landmarks[0], ghats[0]].filter(Boolean);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -121,7 +123,7 @@ const Index = () => (
           subtitle="Explore the verified digital platforms we've built for Ayodhya's most iconic landmarks."
         />
         <div className="grid md:grid-cols-3 gap-8">
-          {featuredPlaces.slice(0, 3).map((place, i) => (
+          {displayProjects.map((place, i) => (
             <motion.article
               key={place.name}
               custom={i}
