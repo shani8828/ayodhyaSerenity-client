@@ -21,6 +21,8 @@ import SiteMap from "./pages/SiteMap";
 import NotFound from "./pages/NotFound";
 import RamNaamClick from "./components/RamNaamClick";
 
+import SarthiChat from "@/components/SarthiChat";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -48,6 +50,7 @@ const App = () => (
           </Routes>
           <Footer />
           <RamNaamClick/>
+          <SarthiChat />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
