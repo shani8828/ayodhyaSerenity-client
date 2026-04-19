@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, User, Bot, Loader2 } from "lucide-react";
 import api from "@/lib/axios";
+import { Link } from "react-router-dom";
 
 type Message = {
   role: "user" | "assistant" | "system";
@@ -104,13 +108,23 @@ export default function SarthiChat() {
                   )}
 
                   <div
-                    className={`max-w-[75%] p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${
-                      msg.role === "user"
-                        ? "bg-primary text-primary-foreground rounded-br-sm"
-                        : "bg-white dark:bg-neutral-800 text-foreground border border-black/5 dark:border-white/10 rounded-bl-sm"
-                    }`}
+                    className={`max-w-[75%] p-3 rounded-2xl shadow-sm text-sm leading-relaxed ${msg.role === "user"
+                      ? "bg-primary text-primary-foreground rounded-br-sm"
+                      : "bg-white dark:bg-neutral-800 text-foreground border border-black/5 dark:border-white/10 rounded-bl-sm"
+                      } prose prose-sm dark:prose-invert max-w-none`}
                   >
-                    {msg.content}
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm, remarkBreaks]}
+                      components={{
+                        a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline" />,
+                        h1: ({ node, ...props }) => <h1 {...props} className="text-xl font-bold my-2" />,
+                        h2: ({ node, ...props }) => <h2 {...props} className="text-lg font-bold my-1" />,
+                        p: ({ node, ...props }) => <p {...props} className="mb-4 last:mb-0" />,
+                        ul: ({ node, ...props }) => <ul {...props} className="list-disc ml-4 mb-4" />,
+                      }}
+                    >
+                      {msg.content}
+                    </ReactMarkdown>
                   </div>
 
                   {msg.role === "user" && (
@@ -163,7 +177,7 @@ export default function SarthiChat() {
         )}
       </AnimatePresence>
 
-      {/* Floating Toggle Button */}
+      {/* Floating close/open Toggle Button */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
