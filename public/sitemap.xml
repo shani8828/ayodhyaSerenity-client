@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://ayodhyaserenity.com/</loc>
+    <loc>https://ayodhyaserenity.vercel.app/</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://ayodhyaserenity.com/images/hero-ayodhya.avif</image:loc>
-      <image:title>Ayodhya Serenity – Temples at Sunset Along the Sarayu River</image:title>
+      <image:loc>https://ayodhyaserenity.vercel.app/images/hero-ayodhya.avif</image:loc>
+      <image:title>Ayodhya Serenity - Temples at Sunset Along the Sarayu River</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/about</loc>
+    <loc>https://ayodhyaserenity.vercel.app/about</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/projects</loc>
+    <loc>https://ayodhyaserenity.vercel.app/projects</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://ayodhyaserenity.com/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif</image:loc>
-      <image:title>Ayodhya Serenity – Hanuman Garhi Temple</image:title>
+      <image:loc>https://ayodhyaserenity.vercel.app/images/Hanuman_Garhi_Temple,_a_major_religious_site_in_Ayodhya_utter_pradesh.avif</image:loc>
+      <image:title>Ayodhya Serenity - Hanuman Garhi Temple</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://ayodhyaserenity.com/images/lata-mangeshkar-chowk.avif</image:loc>
-      <image:title>Ayodhya Serenity – Lata Mangeshkar Chowk</image:title>
+      <image:loc>https://ayodhyaserenity.vercel.app/images/lata-mangeshkar-chowk.avif</image:loc>
+      <image:title>Ayodhya Serenity - Lata Mangeshkar Chowk</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://ayodhyaserenity.com/images/shravan-kumar-mandir.avif</image:loc>
-      <image:title>Ayodhya Serenity – Shravan Kumar Mandir</image:title>
+      <image:loc>https://ayodhyaserenity.vercel.app/images/shravan-kumar-mandir.avif</image:loc>
+      <image:title>Ayodhya Serenity - Shravan Kumar Mandir</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/team</loc>
+    <loc>https://ayodhyaserenity.vercel.app/team</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/photo-competition</loc>
+    <loc>https://ayodhyaserenity.vercel.app/photo-competition</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://ayodhyaserenity.com/images/daily-photo.avif</image:loc>
-      <image:title>Ayodhya Serenity – Photo of the Day</image:title>
+      <image:loc>https://ayodhyaserenity.vercel.app/images/daily-photo.avif</image:loc>
+      <image:title>Ayodhya Serenity - Photo of the Day</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/trust-badge</loc>
+    <loc>https://ayodhyaserenity.vercel.app/trust-badge</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/contact</loc>
+    <loc>https://ayodhyaserenity.vercel.app/contact</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/site-map</loc>
+    <loc>https://ayodhyaserenity.vercel.app/site-map</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/privacy-policy</loc>
+    <loc>https://ayodhyaserenity.vercel.app/privacy-policy</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/terms-and-conditions</loc>
+    <loc>https://ayodhyaserenity.vercel.app/terms-and-conditions</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ayodhyaserenity.com/copyright-legal</loc>
+    <loc>https://ayodhyaserenity.vercel.app/copyright-legal</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
