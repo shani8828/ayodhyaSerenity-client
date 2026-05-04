@@ -5,9 +5,11 @@ import siddhPeethHanumanGarhi from "/images/mainEntrance_Sidddh_Peeth_Hanuman_Ga
 import barunBazar from "/images/hero-market.jpg";
 import ramKiPaidi from "/images/NightView_RamKiPaidi.jpg";
 import toolNagri from "/images/toolNagri.png";
+import axioManage from "/images/Axio-Manage_Ayodhya_Serenity.png";
 
 export const tools = [
   { name: "ToolNagri", img: toolNagri, desc: "Generate & Scan QR codes, barcodes, and access powerful utilities - all in one place. Fast, secure, and beautifully designed for everyday use.", link: "https://toolnagri.vercel.app", verified: true, alt: "ToolNagri QR code generator and barcode scanner, Ayodhya Serenity" },
+  { name: "Axio-Manage", img: axioManage, desc: "Organize tasks, habits, expenses, diaries, and contacts in one calm, focused workspace. Built for clarity, consistency, and momentum.", link: "https://axio-manage.vercel.app/", verified: true, alt: "Axio-Manage workspace, Ayodhya Serenity" },
 ]
 export const markets = [
   { name: "Barun Bazar Market, Ayodhya", location: "Ayodhya, Uttar Pradesh", img: barunBazar, desc: "A bustling market in Barun Bazar, Ayodhya, offering a variety of local goods and traditional crafts.", link: "https://barunbazar.vercel.app", verified: true, alt: "Ayodhya Serenity - Barun Bazar Market traditional shopping in Ayodhya" },
