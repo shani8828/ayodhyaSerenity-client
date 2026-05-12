@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://ayodhyaserenity.com/sitemap.xml
+Sitemap: https://ayodhyaserenity.vercel.app/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

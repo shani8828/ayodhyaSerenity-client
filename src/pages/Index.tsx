@@ -76,7 +76,7 @@ const Index = () => (
           <Button
             asChild
             size="lg"
-            className="bg-gradient-saffron hover:opacity-90 text-primary-foreground font-semibold px-8 shadow-lg active:scale-95 transition-transform"
+            className="bg-gradient-saffron hover:opacity-80 text-primary-foreground font-semibold px-8 shadow-lg active:scale-95 transition-all duration-300"
           >
             <Link to="/projects">Explore Ayodhya</Link>
           </Button>

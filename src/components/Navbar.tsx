@@ -4,8 +4,9 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", to: "/" },
+  // { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
   { label: "Projects", to: "/projects" },
   { label: "Team", to: "/team" },
   // { label: "Photo Competition", to: "/photo-competition" },
@@ -34,7 +35,7 @@ const Navbar = () => {
             <Link
               key={l.to}
               to={l.to}
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors link-underline ${pathname === l.to
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors link-underline ${pathname.startsWith(l.to)
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
