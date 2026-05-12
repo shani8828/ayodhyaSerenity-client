@@ -28,8 +28,8 @@ const Footer = () => (
             <h4 className="font-display font-semibold mb-4 text-saffron-light">Programs</h4>
             <ul className="space-y-2 text-sm opacity-80">
               {/* <li><Link to="/photo-competition" className="hover:opacity-100 transition-opacity link-underline">Photo Competition</Link></li> */}
+              <li><Link to="/services" className="hover:opacity-100 transition-opacity link-underline">Our Services</Link></li>
               <li><Link to="/trust-badge" className="hover:opacity-100 transition-opacity link-underline">Trust Badge Program</Link></li>
-              <li><Link to="/contact" className="hover:opacity-100 transition-opacity link-underline">Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Footer = () => (
             {/* Alternative: Newsletter or Inquiry Link */}
             <li>
               <a href="/contact" className="hover:opacity-100 transition-opacity flex items-center gap-2 link-underline">
-                <span>Contact Form</span>
+                <span>Contact Us</span>
                 <span className="text-xs">→</span>
               </a>
             </li>

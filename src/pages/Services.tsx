@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Store, Car, Laptop, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Store, Car, Laptop, ArrowRight, CheckCircle2, ShieldCheck, Globe } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
@@ -21,8 +21,9 @@ const services = [
     icon: Car,
     title: "Transport Listing Service",
     description: "Vehicle owners and transport providers can list their services for visitors travelling across Ayodhya and nearby places.",
-    process: "Submit vehicle details, contact info, route coverage, and pricing/range. Team reviews and lists within 24 hours.",
-    highlight: "Absolutely free.",
+    process: "Submit vehicle details → our team reviews it → listed within 24 hours.",
+    // process: "Submit vehicle details, contact info, route coverage, and pricing/range. Team reviews and lists within 24 hours.",
+    highlight: "Absolutely free of cost.",
     buttonText: "List Transport Service",
     route: "/services/transport",
   },
@@ -31,11 +32,31 @@ const services = [
     icon: Laptop,
     title: "Website Development Service",
     description: "Users can create a new website or modernize an existing one with our professional tech team.",
-    process: "Submit requirements and our team will contact them within 24 hours.",
+    process: "Submit website requirements → our team reviews it → listed within 24 hours.",
     highlight: "Premium quality & support.",
     buttonText: "Get a Website",
     route: "/services/website",
-  }
+  },
+  {
+    id: "digital-preserve",
+    icon: Globe,
+    title: "Digital Preservation Service",
+    description: "Users can preserve their landmarks, temples, markets, shops, hotels, restaurants, and also historical sites.",
+    process: "Submit your details → our team reviews it → listed within 24 hours.",
+    highlight: "Premium quality & support.",
+    buttonText: "Preserve a Site",
+    route: "/services/digital-preserve",
+  },
+  {
+    id: "trust-badge",
+    icon: ShieldCheck,
+    title: "Trust Badge Service",
+    description: "Users can get a trust badge for their services from Ayodhya Serenity.",
+    process: "Submit your details → our team reviews it → listed within 24 hours.",
+    highlight: "Verified & Authentic.",
+    buttonText: "Get a Trust Badge",
+    route: "/trust-badge",
+  },
 ];
 
 const Services = () => {
@@ -63,8 +84,8 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="container mx-auto px-4 pb-24 pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="mx-auto container pb-24 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 container">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -75,9 +96,9 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col h-full bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group"
+                  className="flex flex-col items-center h-full bg-card/80 border border-border rounded-xl p-2 md:p-4 hover:border-primary transition-all duration-300 group"
                 >
-                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                     <Icon size={28} strokeWidth={1.5} />
                   </div>
 
@@ -85,7 +106,7 @@ const Services = () => {
                     {service.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-6 flex-grow leading-relaxed">
+                  <p className="text-muted-foreground mb-6 flex-grow align-middle text-center">
                     {service.description}
                   </p>
 
