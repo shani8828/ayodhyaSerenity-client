@@ -20,6 +20,7 @@ import CopyrightLegal from "./pages/CopyrightLegal";
 import SiteMap from "./pages/SiteMap";
 import NotFound from "./pages/NotFound";
 import RamNaamClick from "./components/RamNaamClick";
+import MapsView from "./pages/MapsView";
 
 import SarthiChat from "@/components/SarthiChat";
 
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/terms-and-conditions" element={<TermsConditions />} />
             <Route path="/copyright-legal" element={<CopyrightLegal />} />
             <Route path="/site-map" element={<SiteMap />} />
+            <Route path="projects/maps" element={<MapsView />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

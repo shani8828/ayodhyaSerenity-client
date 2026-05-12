@@ -39,8 +39,8 @@ const Projects = () => {
   const [loaded, setLoaded] = useState<Record<string, boolean>>({});
   const [activeTab, setActiveTab] = useState("all");
 
-  const filteredProjects = activeTab === "all" 
-    ? allProjects 
+  const filteredProjects = activeTab === "all"
+    ? allProjects
     : allProjects.filter(p => p.category === activeTab);
 
   return (
@@ -64,6 +64,20 @@ const Projects = () => {
               subtitle="Every digital platform we've built for Ayodhya's landmarks - verified, authentic, and trusted."
             />
           </div>
+
+          {/* Maps Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 flex justify-center"
+          >
+            <Button asChild variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-all">
+              <Link to="maps" className="flex items-center gap-2">
+                <MapPin size={16} />View Projects on Map
+              </Link>
+            </Button>
+          </motion.div>
         </section>
 
         {/* Sticky Filter Pills Container */}
@@ -74,11 +88,10 @@ const Projects = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveTab(cat.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeTab === cat.id
-                      ? "bg-primary text-primary-foreground shadow-md scale-105"
-                      : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
-                  }`}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === cat.id
+                    ? "bg-primary text-primary-foreground shadow-md scale-105"
+                    : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    }`}
                   aria-label={`Filter by ${cat.label}`}
                   aria-pressed={activeTab === cat.id}
                 >
@@ -92,8 +105,8 @@ const Projects = () => {
 
         <section className="px-4 py-8 md:py-12 bg-background flex-grow">
           <div className="max-w-6xl mx-auto">
-            <motion.div 
-              layout 
+            <motion.div
+              layout
               className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
               <AnimatePresence mode="popLayout">
@@ -131,25 +144,25 @@ const Projects = () => {
                           </div>
                         )}
                       </div>
-                      
+
                       {p.location && (
                         <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3 font-medium">
                           <MapPin size={14} className="text-primary/70 shrink-0" />
                           <span className="truncate">{p.location}</span>
                         </div>
                       )}
-                      
+
                       <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                         {p.desc}
                       </p>
-                      
+
                       <div className="mt-auto">
-                        <Button 
-                          asChild 
+                        <Button
+                          asChild
                           className="w-full bg-gradient-saffron text-primary-foreground hover:shadow-md transition-all duration-300 group/btn"
                         >
                           <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${p.name} website`}>
-                            Visit Website 
+                            Visit Website
                             <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
                           </a>
                         </Button>
@@ -161,9 +174,9 @@ const Projects = () => {
             </motion.div>
 
             {filteredProjects.length === 0 && (
-              <motion.div 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="text-center py-20"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4 text-muted-foreground">
@@ -173,13 +186,13 @@ const Projects = () => {
                 <p className="text-muted-foreground">Currently there are no projects in this category.</p>
               </motion.div>
             )}
-
+            {/* Internal Links  */}
             <div className="text-center mt-12 md:mt-16 pt-8 border-t border-border/40">
               <p className="text-muted-foreground">
                 Want to be part of the Ayodhya Serenity network? <br className="md:hidden" />
                 <Link to="/trust-badge" className="text-primary font-medium hover:underline inline-flex items-center gap-1 mt-2 md:mt-0 md:ml-1">
                   Apply for the Trust Badge <ArrowRight size={14} />
-                </Link> 
+                </Link>
                 <span className="hidden md:inline mx-2 text-border">•</span>
                 <Link to="/contact" className="text-primary font-medium hover:underline inline-flex items-center gap-1 mt-2 md:mt-0">
                   Contact our team <ArrowRight size={14} />

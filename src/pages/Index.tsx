@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import heroImg from "/images/hero-ayodhya.avif";
 import { temples, landmarks, ghats } from "@/data/projects";
+import FAQs from "@/components/FAQs";
 
 const displayProjects = [temples[0], landmarks[0], ghats[0]].filter(Boolean);
 
@@ -33,13 +34,6 @@ const reviews = [
   { name: "Ananya Patel", text: "As a travel blogger, I rely on Ayodhya Serenity for accurate temple information. Highly recommended.", rating: 5 },
 ];
 
-const faq = [
-  { question: "What is Ayodhya Serenity?", answer: "Ayodhya Serenity is the trusted digital gateway to Ayodhya, providing verified information about temples, landmarks, and spiritual destinations for pilgrims and travelers." },
-  { question: "Where is Ayodhya Serenity located?", answer: "Ayodhya Serenity is based in Ayodhya, Uttar Pradesh, India - the ancient holy city and birthplace of Lord Rama." },
-  { question: "Why visit Ayodhya Serenity?", answer: "Ayodhya Serenity provides the most comprehensive, verified, and authentic digital guide to Ayodhya's temples, sacred sites, travel routes, and cultural heritage." },
-  { question: "How can I plan my visit to Ayodhya?", answer: "Use Ayodhya Serenity's travel guide section for best visiting times, transport options, temple etiquette, and nearby landmarks to plan a meaningful pilgrimage." },
-];
-
 const Index = () => (
   <>
     <SEOHead
@@ -48,7 +42,6 @@ const Index = () => (
       schema={schema}
       canonical="https://ayodhyaserenity.vercel.app"
       breadcrumbs={[{ name: "Home", url: "https://ayodhyaserenity.vercel.app" }]}
-      faq={faq}
     />
 
     {/* Hero */}
@@ -94,13 +87,13 @@ const Index = () => (
             variant="outline"
             className="border-white/40 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 font-semibold px-8 active:scale-95 transition-all"
           >
-            <a href="#plan-visit">Plan Your Visit</a>
+            <Link to="/contact">Connect With Us</Link>
           </Button>
         </motion.div>
       </div>
     </section>
 
-    {/* Intro – Why Visit Ayodhya Serenity */}
+    {/* Intro - Why Visit Ayodhya Serenity */}
     <section className="section-padding bg-background">
       <div className="max-w-4xl mx-auto text-center">
         <SectionHeading
@@ -261,7 +254,7 @@ const Index = () => (
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="bg-card rounded-lg p-4 shadow-sm"
+              className="bg-card rounded-lg p-4 shadow-sm border hover:border-primary transition-all duration-300"
             >
               <Code size={20} className="text-primary mb-2 mx-auto" aria-hidden="true" />
               <p className="text-sm font-medium">{s}</p>
@@ -299,7 +292,7 @@ const Index = () => (
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
-              className="bg-background rounded-xl p-6 shadow-sm"
+              className="bg-background rounded-xl p-6 shadow-sm border border-border hover:border-primary transition-all duration-300"
             >
               <item.icon size={28} className="text-primary mb-3 mx-auto" aria-hidden="true" />
               <h3 className="font-display font-bold mb-2">{item.title}</h3>
@@ -314,30 +307,7 @@ const Index = () => (
     </section>
 
     {/* FAQ Section */}
-    <section className="section-padding bg-background">
-      <div className="max-w-3xl mx-auto">
-        <SectionHeading
-          label="FAQ"
-          title="Frequently Asked Questions"
-          subtitle="Common questions about Ayodhya Serenity and visiting the holy city."
-        />
-        <div className="space-y-6">
-          {faq.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="bg-card rounded-xl p-6 shadow-sm border border-border"
-            >
-              <h3 className="font-display font-bold text-lg mb-2">{item.question}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.answer}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <FAQs />
   </>
 );
 
