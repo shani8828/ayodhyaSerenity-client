@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Projects", to: "/projects" },
   { label: "Team", to: "/team" },
   // { label: "Photo Competition", to: "/photo-competition" },
-  { label: "Trust Badge", to: "/trust-badge" },
+  // { label: "Trust Badge", to: "/trust-badge" },
   { label: "Contact", to: "/contact" },
 ];
 

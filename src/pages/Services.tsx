@@ -32,7 +32,7 @@ const services = [
     icon: Laptop,
     title: "Website Development Service",
     description: "Users can create a new website or modernize an existing one with our professional tech team.",
-    process: "Submit website requirements → our team reviews it → listed within 24 hours.",
+    process: "Submit website requirements → our team reviews it → get back to you within 24 hours.",
     highlight: "Premium quality & support.",
     buttonText: "Get a Website",
     route: "/services/website",
@@ -47,16 +47,16 @@ const services = [
     buttonText: "Preserve a Site",
     route: "/services/digital-preserve",
   },
-  {
-    id: "trust-badge",
-    icon: ShieldCheck,
-    title: "Trust Badge Service",
-    description: "Users can get a trust badge for their services from Ayodhya Serenity.",
-    process: "Submit your details → our team reviews it → listed within 24 hours.",
-    highlight: "Verified & Authentic.",
-    buttonText: "Get a Trust Badge",
-    route: "/trust-badge",
-  },
+  // {
+  //   id: "trust-badge",
+  //   icon: ShieldCheck,
+  //   title: "Trust Badge Service",
+  //   description: "Users can get a trust badge for their services from Ayodhya Serenity.",
+  //   process: "Submit your details → our team reviews it → listed within 24 hours.",
+  //   highlight: "Verified & Authentic.",
+  //   buttonText: "Get a Trust Badge",
+  //   route: "/trust-badge",
+  // },
 ];
 
 const Services = () => {
@@ -72,8 +72,8 @@ const Services = () => {
         ]}
       />
 
-      <main className="pt-16 min-h-screen bg-background">
-        <section className="section-padding bg-gradient-warm">
+      <main className="pt-16 pb-12 min-h-screen flex flex-col">
+        <section className="section-padding bg-gradient-warm pb-6 md:pb-10 shrink-0">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeading
               label="Our Services"
@@ -84,67 +84,64 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="mx-auto container pb-24 pt-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 container">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.id}
-                  id={service.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col items-center h-full bg-card/80 border border-border rounded-xl p-2 md:p-4 hover:border-primary transition-all duration-300 group"
-                >
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    <Icon size={28} strokeWidth={1.5} />
-                  </div>
+        <section className="px-4 py-8 md:py-12 bg-background flex-grow">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <motion.article
+                    key={service.id}
+                    id={service.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group bg-card rounded-xl border border-border/40 overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/20 transition-all flex flex-col h-full"
+                  >
+                    <div className="p-5 md:p-6 flex flex-col flex-grow">
+                      <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shrink-0">
+                        <Icon size={24} strokeWidth={1.5} />
+                      </div>
 
-                  <h3 className="text-2xl font-bold text-foreground mb-4 font-display">
-                    {service.title}
-                  </h3>
+                      <h3 className="font-display text-xl font-bold leading-tight mb-3">
+                        {service.title}
+                      </h3>
 
-                  <p className="text-muted-foreground mb-6 flex-grow align-middle text-center">
-                    {service.description}
-                  </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
+                        {service.description}
+                      </p>
 
-                  <div className="bg-muted/50 rounded-xl p-4 mb-6 border border-border/50">
-                    <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Process
-                    </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {service.process}
-                    </p>
-                  </div>
+                      <div className="bg-muted/50 rounded-lg p-3.5 mb-5 border border-border/50 shrink-0">
+                        <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Process
+                        </h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {service.process}
+                        </p>
+                      </div>
 
-                  <div className="flex items-center gap-2 mb-8 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                    <CheckCircle2 size={16} />
-                    <span>{service.highlight}</span>
-                  </div>
+                      <div className="flex items-center gap-2 mb-6 text-sm font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
+                        <CheckCircle2 size={16} />
+                        <span>{service.highlight}</span>
+                      </div>
 
-                  <div className="mt-auto pt-4 border-t border-border/50">
-                    <Button
-                      asChild size="lg"
-                      className="bg-gradient-saffron hover:opacity-80 text-primary-foreground font-semibold px-8 shadow-lg active:scale-95 transition-all duration-300"
-                    >
-                      <Link to={service.route}>
-                        {service.buttonText}
-                        <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                    {/* <Button
-            asChild
-            size="lg"
-            className="bg-gradient-saffron hover:opacity-80 text-primary-foreground font-semibold px-8 shadow-lg active:scale-95 transition-all duration-300"
-          >
-            <Link to="/projects">Explore Ayodhya</Link>
-          </Button> */}
-                  </div>
-                </motion.div>
-              );
-            })}
+                      <div className="mt-auto shrink-0">
+                        <Button
+                          asChild
+                          className="w-full bg-gradient-saffron text-primary-foreground hover:shadow-md transition-all duration-300 group/btn"
+                        >
+                          <Link to={service.route}>
+                            {service.buttonText}
+                            <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </div>
           </div>
         </section>
       </main>

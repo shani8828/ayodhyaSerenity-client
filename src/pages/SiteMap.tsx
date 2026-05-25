@@ -5,6 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 const pages = [
   { title: "Home", path: "/", desc: "Ayodhya Serenity homepage – your gateway to spiritual Ayodhya." },
   { title: "About Ayodhya Serenity", path: "/about", desc: "Our vision, mission, and commitment to Ayodhya's heritage." },
+  { title: "Our Services", path: "/services", desc: "Our services including business listing, transport listing, and professional website development to connect with visitors of Ayodhya." },
   { title: "Projects", path: "/projects", desc: "All verified temple and landmark websites by Ayodhya Serenity." },
   { title: "Our Team", path: "/team", desc: "Meet the developers, researchers, and experts behind the platform." },
   { title: "Photo Competition", path: "/photo-competition", desc: "Submit and vote on photos of Ayodhya's sacred sites." },

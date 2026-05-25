@@ -245,7 +245,7 @@ const Index = () => (
           title="Hire Our Developers"
           subtitle="Our team builds beautiful, purpose-driven websites for temples, travel portals, digital archives, and tourism platforms."
         />
-        <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
           {["Temple Websites", "Travel Portals", "Digital Archives", "Tourism Platforms", "Others"].map((s, i) => (
             <motion.div
               key={s}
@@ -272,7 +272,7 @@ const Index = () => (
     </section>
 
     {/* Badge Program */}
-    <section className="section-padding bg-gradient-warm">
+    {/* <section className="section-padding bg-gradient-warm">
       <div className="max-w-4xl mx-auto text-center">
         <SectionHeading
           label="Trust Program"
@@ -304,7 +304,7 @@ const Index = () => (
           <Link to="/trust-badge">Apply for Trust Badge <ArrowRight size={16} className="ml-2" /></Link>
         </Button>
       </div>
-    </section>
+    </section> */}
 
     {/* FAQ Section */}
     <FAQs />

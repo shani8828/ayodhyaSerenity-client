@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import WebsiteService from "./pages/WebsiteService";
 import WorkInProgress from "./pages/WorkInProgress";
 import Projects from "./pages/Projects";
 import Team from "./pages/Team";
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/website" element={<WebsiteService />} />
             <Route path="/services/:id" element={<WorkInProgress />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/team" element={<Team />} />
