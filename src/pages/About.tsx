@@ -50,7 +50,7 @@ const About = () => (
               <p className="font-['Plus_Jakarta_Sans'] text-base text-[#F9F9F6]/80 leading-relaxed">{item.text}</p>
             </motion.div>
           ))}
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

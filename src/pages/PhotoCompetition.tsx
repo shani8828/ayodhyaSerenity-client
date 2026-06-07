@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Camera, Trophy, Upload, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import dailyPhoto from "/images/daily-photo.avif";
@@ -26,8 +25,9 @@ const PhotoCompetition = () => (
       ]}
     />
 
-    <main className="pt-16">
-      <section className="section-padding bg-gradient-warm">
+    <main className="bg-[#000000] text-[#F9F9F6] pt-16 min-h-screen selection:bg-[#FF6B00] selection:text-black">
+      {/* Header */}
+      <section className="py-24 md:py-36 px-6 md:px-16 bg-gradient-warm border-b-[0.5px] border-white/5">
         <SectionHeading
           label="Photography"
           title="Ayodhya Serenity Photo Competition"
@@ -35,59 +35,86 @@ const PhotoCompetition = () => (
         />
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-3 gap-6 mb-12">
+      {/* Steps Section */}
+      <section className="py-20 md:py-32 px-6 md:px-16 bg-[#000000]">
+        <div className="max-w-5xl mx-auto space-y-24">
+          
+          {/* Borderless Steps grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
             {[
               { icon: Upload, title: "Upload", desc: "Submit your best photos of Ayodhya's temples, ghats, and sacred sites." },
               { icon: Heart, title: "Vote", desc: "Community members vote for their favorite photographs daily." },
               { icon: Trophy, title: "Win", desc: "Winners are featured on the homepage and recognized across our network." },
-            ].map((step, i) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center bg-card rounded-xl p-6 shadow-sm"
-              >
-                <step.icon size={32} className="text-primary mx-auto mb-3" aria-hidden="true" />
-                <h3 className="font-display font-bold text-lg mb-1">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <h2 className="font-display text-2xl font-bold text-center mb-8">Recent Submissions</h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            {gallery.map((p, i) => (
-              <motion.div
-                key={p.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-xl overflow-hidden shadow-md bg-card"
-              >
-                <img src={p.img} alt={p.alt} title={p.title} className="w-full h-48 object-cover" loading="lazy" />
-                <div className="p-4">
-                  <h4 className="font-semibold text-sm mb-1">{p.title}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">by {p.by}</p>
-                  <div className="flex items-center gap-1 text-muted-foreground">
-                    <Heart size={14} className="text-primary" aria-hidden="true" />
-                    <span className="text-xs">{p.votes} votes</span>
+            ].map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: i * 0.05 }}
+                  className="space-y-4 flex flex-col items-center"
+                >
+                  <div className="w-12 h-12 bg-white/5 flex items-center justify-center text-[#FF6B00]">
+                    <Icon size={20} strokeWidth={1} />
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  <h3 className="font-['Clash_Display'] text-xl font-bold tracking-tight">{step.title}</h3>
+                  <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/75 max-w-xs leading-relaxed">{step.desc}</p>
+                </motion.div>
+              );
+            })}
           </div>
 
-          <div className="text-center">
-            <Button size="lg" className="bg-gradient-saffron text-primary-foreground hover:opacity-90 font-semibold px-8">
-              <Camera size={18} className="mr-2" /> Submit Your Photo
-            </Button>
-            <p className="text-muted-foreground text-sm mt-4">
-              Browse all <Link to="/projects" className="text-primary hover:underline">Ayodhya Serenity projects</Link> for more inspiration.
+          {/* Submissions Section */}
+          <div className="space-y-12">
+            <h2 className="font-['Clash_Display'] text-3xl font-bold tracking-tight text-center">Recent Submissions</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+              {gallery.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: i * 0.05 }}
+                  className="flex flex-col space-y-4 group"
+                >
+                  <div className="overflow-hidden aspect-video bg-[#0d0d0d]">
+                    <img 
+                      src={p.img} 
+                      alt={p.alt} 
+                      title={p.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103" 
+                      loading="lazy" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="font-['Clash_Display'] text-lg font-bold tracking-tight">{p.title}</h4>
+                    <div className="flex items-center justify-between text-xs font-['Plus_Jakarta_Sans'] text-[#9AAB9B]">
+                      <span>by {p.by}</span>
+                      <div className="flex items-center gap-1.5 text-[#FF6B00]">
+                        <Heart size={12} strokeWidth={2} className="fill-current text-[#FF6B00]" aria-hidden="true" />
+                        <span className="font-semibold tracking-wider">{p.votes} votes</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Actions */}
+          <div className="text-center space-y-6 pt-8 border-t-[0.5px] border-white/10 font-['Plus_Jakarta_Sans']">
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-[#FF6B00] text-black font-semibold px-8 py-4 uppercase text-xs tracking-widest transition-all duration-300 inline-flex items-center gap-2"
+            >
+              <Camera size={14} strokeWidth={1.5} /> Submit Your Photo
+            </motion.button>
+            <p className="text-xs text-[#9AAB9B]">
+              Browse all <Link to="/projects" className="text-[#FF6B00] hover:underline font-bold">Ayodhya Serenity projects</Link> for more inspiration.
             </p>
           </div>
         </div>

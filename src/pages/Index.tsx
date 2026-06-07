@@ -12,7 +12,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.08, type: "spring", stiffness: 100, damping: 20 },
+    transition: { delay: i * 0.08, type: "spring" as const, stiffness: 100, damping: 20 },
   }),
 };
 
@@ -46,11 +46,11 @@ const Index = () => (
     <section className="relative min-h-screen w-full bg-[#000000] text-[#F9F9F6] overflow-hidden flex flex-col justify-between pt-36 pb-16 px-6 md:px-16 selection:bg-[#FF6B00] selection:text-black">
       {/* Dynamic Background Text (Ultra-lightweight replacement for heavy sunset image) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none opacity-5">
-        <motion.h1 
+        <motion.h1
           initial={{ y: 0 }}
           animate={{ y: -50 }}
           transition={{ ease: "linear", duration: 15, repeat: Infinity, repeatType: "reverse" }}
-          className="text-[22vw] font-['Clash_Display'] font-bold tracking-tighter text-white whitespace-nowrap"
+          className="text-[19vw] font-['Clash_Display'] font-bold tracking-tighter text-white "
         >
           AYODHYA SERENITY
         </motion.h1>
@@ -67,22 +67,21 @@ const Index = () => (
               Divine Echoes, Timeless Peace
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-['Clash_Display'] font-bold tracking-tighter leading-[0.9] text-wrap-balance text-[#F9F9F6]">
-              Timeless Spirit.<br />
+              Blessed to serve<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#F9F9F6]">
-                Cinematic Luxury.
+                Shri Ramnagri
               </span>
             </h1>
           </motion.div>
         </div>
 
         <div className="lg:col-span-4 space-y-6">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 100, damping: 20 }}
             className="font-['Plus_Jakarta_Sans'] text-base md:text-lg text-[#F9F9F6]/80 leading-relaxed"
-          >
-            Experience the trusted digital gateway to Ayodhya. We deliver verified information, travel guidance, and authentic digital experiences for temples, spiritual landmarks, and cultural sites.
+          >A digital ecosystem inside Ayodhya, dedicated to modernizing local commerce, streamlining transit, and preserving sacred heritage with absolute authenticity.
           </motion.p>
 
           <motion.div
@@ -97,8 +96,8 @@ const Index = () => (
               className="group flex items-center gap-3 bg-[#FF6B00] text-black font-['Plus_Jakarta_Sans'] font-semibold px-8 py-4 rounded-none uppercase text-xs tracking-widest transition-all duration-300"
             >
               <Link to="/projects" className="flex items-center gap-3">
-                Explore Ayodhya
-                <ArrowUpRight className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"/>
+                Explore
+                <ArrowUpRight className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </motion.button>
             <motion.button
@@ -113,12 +112,7 @@ const Index = () => (
       </div>
 
       <div className="w-full border-t-[0.5px] border-[#F9F9F6]/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs tracking-widest text-[#9AAB9B] uppercase font-['Plus_Jakarta_Sans'] z-10 gap-4">
-        <div>© {new Date().getFullYear()} Ayodhya Serenity Project</div>
-        <div className="flex gap-8">
-          <a href="#about" className="hover:text-[#FF6B00] transition-colors">About</a>
-          <a href="#projects" className="hover:text-[#FF6B00] transition-colors">Projects</a>
-          <a href="#plan-visit" className="hover:text-[#FF6B00] transition-colors">Guide</a>
-        </div>
+        <div>A team working from within the sacred soil to immortalize the essence of Ayodhya.</div>
       </div>
     </section>
 
@@ -127,7 +121,7 @@ const Index = () => (
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <SectionHeading
           label="Our Purpose"
-          title="Why Visit Ayodhya Serenity"
+          title="Why Visit Ayodhya Serenity?"
           subtitle="Ayodhya Serenity is dedicated to documenting, preserving, and guiding visitors through the sacred and historical landmarks of Ayodhya."
         />
         <motion.p
@@ -136,8 +130,7 @@ const Index = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-base md:text-lg text-[#F9F9F6]/80 leading-relaxed font-['Plus_Jakarta_Sans'] max-w-3xl mx-auto"
-        >
-          Our platform serves as the central hub for verified information about Ayodhya's temples, pilgrimage routes, and spiritual tourism opportunities. Whether you're planning your first visit or seeking deeper knowledge about Ayodhya's rich heritage, Ayodhya Serenity provides authentic, well-researched content that respects the cultural significance of every sacred site.
+        >Born within Ramnagri, Ayodhya Serenity is a premium digital ecosystem combining high-end website development, free business and transit listings, and ground-researched cultural preservation to seamlessly connect global devotees with local authenticity.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
@@ -162,7 +155,7 @@ const Index = () => (
           title="Sacred Environment in Ayodhya"
           subtitle="Explore the verified digital platforms we've built for Ayodhya's most iconic landmarks."
         />
-        
+
         {/* Zero-Clutter borderless grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-12">
           {displayProjects.map((place, i) => (
@@ -188,14 +181,14 @@ const Index = () => (
                 <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">{place.name}</h3>
                 <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/70 leading-relaxed min-h-[60px]">{place.desc}</p>
                 <div className="pt-2">
-                  <a 
-                    href={place.link} 
-                    target="_blank" 
+                  <a
+                    href={place.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs uppercase font-bold tracking-widest text-[#FF6B00] hover:text-[#F9F9F6] transition-colors inline-flex items-center gap-1.5 group"
                     aria-label={`Visit ${place.name} website by Ayodhya Serenity`}
                   >
-                    Visit Website 
+                    Visit Website
                     <ArrowRight strokeWidth={1} className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </a>
                 </div>
@@ -205,11 +198,11 @@ const Index = () => (
         </div>
 
         <div className="text-center mt-20">
-          <Link 
-            to="/projects" 
+          <Link
+            to="/projects"
             className="text-xs uppercase font-bold tracking-widest text-[#FF6B00] hover:text-[#F9F9F6] transition-colors inline-flex items-center gap-2 group p-4 border border-[#FF6B00]/20 hover:border-[#FF6B00]"
           >
-            View All Ayodhya Serenity Projects 
+            View All Ayodhya Serenity Projects
             <ArrowRight strokeWidth={1} className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

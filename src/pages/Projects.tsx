@@ -117,65 +117,58 @@ const Projects = () => {
         <section className="px-6 md:px-16 py-16 md:py-24 bg-[#000000] flex-grow">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12 lg:gap-16">
-              <AnimatePresence mode="wait">
-                {filteredProjects.map((p, i) => (
-                  <motion.article
-                    key={p.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3, delay: Math.min(i * 0.04, 0.2) }}
-                    className="flex flex-col space-y-6 group"
-                  >
-                    {/* Visual block - cinematic scaling */}
-                    <div className="relative overflow-hidden bg-[#0a0a0a] aspect-[16/10]">
-                      <img
-                        src={p.img}
-                        alt={p.alt}
-                        title={`${p.name} – verified by Ayodhya Serenity`}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
-                      />
-                    </div>
+              {filteredProjects.map((p) => (
+                <article
+                  key={p.name}
+                  className="flex flex-col space-y-6 group"
+                >
+                  {/* Visual block - cinematic scaling */}
+                  <div className="relative overflow-hidden bg-[#0a0a0a] aspect-[16/10]">
+                    <img
+                      src={p.img}
+                      alt={p.alt}
+                      title={`${p.name} – verified by Ayodhya Serenity`}
+                      decoding="async"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+                    />
+                  </div>
 
-                    <div className="flex flex-col flex-grow space-y-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">{p.name}</h3>
-                        {p.verified && (
-                          <div className="shrink-0 pt-1" title="Verified by Ayodhya Serenity">
-                            <ShieldCheck size={18} className="text-[#FF6B00]" strokeWidth={1.5} aria-label="Verified by Ayodhya Serenity" />
-                          </div>
-                        )}
-                      </div>
-
-                      {p.location && (
-                        <div className="flex items-center gap-1.5 text-xs text-[#9AAB9B] font-bold uppercase tracking-widest font-['Plus_Jakarta_Sans']">
-                          <MapPin size={12} strokeWidth={1.5} className="text-[#FF6B00]" />
-                          <span className="truncate">{p.location}</span>
+                  <div className="flex flex-col flex-grow space-y-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">{p.name}</h3>
+                      {p.verified && (
+                        <div className="shrink-0 pt-1" title="Verified by Ayodhya Serenity">
+                          <ShieldCheck size={18} className="text-[#FF6B00]" strokeWidth={1.5} aria-label="Verified by Ayodhya Serenity" />
                         </div>
                       )}
-
-                      <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/75 leading-relaxed flex-grow min-h-[60px]">
-                        {p.desc}
-                      </p>
-
-                      <div className="pt-2 mt-auto">
-                        <motion.button
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="group/btn w-full bg-[#FF6B00] text-black font-['Plus_Jakarta_Sans'] font-semibold px-6 py-3.5 rounded-none uppercase text-[10px] tracking-widest transition-all duration-300"
-                        >
-                          <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2" aria-label={`Visit ${p.name} website`}>
-                            Visit Website
-                            <ArrowRight size={14} strokeWidth={1.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
-                          </a>
-                        </motion.button>
-                      </div>
                     </div>
-                  </motion.article>
-                ))}
-              </AnimatePresence>
+
+                    {p.location && (
+                      <div className="flex items-center gap-1.5 text-xs text-[#9AAB9B] font-bold uppercase tracking-widest font-['Plus_Jakarta_Sans']">
+                        <MapPin size={12} strokeWidth={1.5} className="text-[#FF6B00]" />
+                        <span className="truncate">{p.location}</span>
+                      </div>
+                    )}
+
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/75 leading-relaxed flex-grow min-h-[60px]">
+                      {p.desc}
+                    </p>
+
+                    <div className="pt-2 mt-auto">
+                      <motion.button
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn w-full bg-[#FF6B00] text-black font-['Plus_Jakarta_Sans'] font-semibold px-6 py-3.5 rounded-none uppercase text-[10px] tracking-widest transition-all duration-300"
+                      >
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2" aria-label={`Visit ${p.name} website`}>
+                          Visit Website
+                          <ArrowRight size={14} strokeWidth={1.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        </a>
+                      </motion.button>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
 
             {filteredProjects.length === 0 && (
@@ -192,10 +185,10 @@ const Projects = () => {
             <div className="text-center mt-20 pt-12 border-t border-white/5 font-['Plus_Jakarta_Sans']">
               <p className="text-[#F9F9F6]/60 text-sm leading-relaxed">
                 Want to be part of the Ayodhya Serenity network? <br className="md:hidden" />
-                <Link to="/trust-badge" className="text-[#FF6B00] font-semibold hover:underline inline-flex items-center gap-1.5 mt-2 md:mt-0 md:ml-1">
+                {/* <Link to="/trust-badge" className="text-[#FF6B00] font-semibold hover:underline inline-flex items-center gap-1.5 mt-2 md:mt-0 md:ml-1">
                   Apply for the Trust Badge <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>
-                <span className="hidden md:inline mx-3 text-white/10">•</span>
+                <span className="hidden md:inline mx-3 text-white/10">•</span> */}
                 <Link to="/contact" className="text-[#FF6B00] font-semibold hover:underline inline-flex items-center gap-1.5 mt-2 md:mt-0">
                   Contact our team <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>

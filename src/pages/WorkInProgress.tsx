@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, Sparkles, Wrench } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import { Button } from "@/components/ui/button";
 
 const WorkInProgress = () => {
   const location = useLocation();
@@ -17,58 +16,61 @@ const WorkInProgress = () => {
         description={`We are meticulously crafting the ${serviceName} feature to bring you a premium experience.`}
       />
 
-      <main className="min-h-screen bg-background flex flex-col items-center justify-center pt-16 px-4 relative overflow-hidden">
+      <main className="min-h-screen bg-[#000000] text-[#F9F9F6] flex flex-col items-center justify-center pt-24 px-6 relative overflow-hidden selection:bg-[#FF6B00] selection:text-black">
         {/* Background decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative z-10 max-w-lg w-full bg-card/80 backdrop-blur-md border border-border/50 rounded-3xl p-8 md:p-12 text-center shadow-xl hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+          className="relative z-10 max-w-lg w-full text-center space-y-8 py-12"
         >
           <motion.div
-            initial={{ rotate: -10 }}
-            animate={{ rotate: 10 }}
+            initial={{ rotate: -5 }}
+            animate={{ rotate: 5 }}
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
-              duration: 2,
+              duration: 3,
               ease: "easeInOut"
             }}
-            className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-8 shadow-inner border border-primary/20"
+            className="w-16 h-16 mx-auto bg-white/5 flex items-center justify-center border border-white/10"
           >
-            <Wrench className="w-10 h-10 text-primary" strokeWidth={1.5} />
+            <Wrench className="w-8 h-8 text-[#FF6B00]" strokeWidth={1} />
           </motion.div>
 
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Work in <span className="text-gradient-saffron">Progress</span>
-          </h1>
-          
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-            We are meticulously crafting the <span className="font-semibold text-foreground">{serviceName}</span> feature. A premium, seamless experience is on its way.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              asChild
-              variant="outline"
-              className="w-full sm:w-auto h-12 px-6 rounded-xl border-border hover:bg-primary/5 hover:text-primary transition-all duration-300"
-            >
-              <Link to="/services">
-                <ArrowLeft className="w-4 h-4 mr-2" /> Back to Services
-              </Link>
-            </Button>
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl font-['Clash_Display'] font-bold tracking-tighter text-[#F9F9F6]">
+              Work in <span className="text-[#FF6B00]">Progress</span>
+            </h1>
             
-            <Button
-              asChild
-              className="w-full sm:w-auto h-12 px-6 rounded-xl bg-gradient-saffron hover:opacity-90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95"
+            <p className="font-['Plus_Jakarta_Sans'] text-base text-[#F9F9F6]/80 leading-relaxed max-w-sm mx-auto">
+              We are meticulously crafting the <span className="font-bold text-[#F9F9F6]">{serviceName}</span> feature. A premium, seamless experience is on its way.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 font-['Plus_Jakarta_Sans']">
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="group w-full sm:w-auto border border-white/20 hover:border-white/40 text-xs font-semibold uppercase tracking-widest text-[#F9F9F6] px-6 py-3.5 transition-all duration-300"
             >
-              <Link to="/">
-                Explore Ayodhya <Sparkles className="w-4 h-4 ml-2" />
+              <Link to="/services" className="flex items-center justify-center gap-2">
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" strokeWidth={1.5} /> 
+                Back to Services
               </Link>
-            </Button>
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="group w-full sm:w-auto bg-[#FF6B00] text-black font-semibold px-6 py-3.5 uppercase text-xs tracking-widest transition-all duration-300"
+            >
+              <Link to="/" className="flex items-center justify-center gap-2">
+                Explore Ayodhya <Sparkles className="w-4 h-4" strokeWidth={1.5} />
+              </Link>
+            </motion.button>
           </div>
         </motion.div>
       </main>
