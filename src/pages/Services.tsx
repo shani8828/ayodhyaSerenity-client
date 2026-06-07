@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Store, Car, Laptop, ArrowRight, CheckCircle2, ShieldCheck, Globe } from "lucide-react";
+import { Store, Car, Laptop, ArrowRight, CheckCircle2, Globe } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import { Button } from "@/components/ui/button";
-import SectionHeading from "@/components/SectionHeading";
 
 const services = [
   {
@@ -22,7 +20,6 @@ const services = [
     title: "Transport Listing Service",
     description: "Vehicle owners and transport providers can list their services for visitors travelling across Ayodhya and nearby places.",
     process: "Submit vehicle details → our team reviews it → listed within 24 hours.",
-    // process: "Submit vehicle details, contact info, route coverage, and pricing/range. Team reviews and lists within 24 hours.",
     highlight: "Absolutely free of cost.",
     buttonText: "List Transport Service",
     route: "/services/transport",
@@ -47,16 +44,6 @@ const services = [
     buttonText: "Preserve a Site",
     route: "/services/digital-preserve",
   },
-  // {
-  //   id: "trust-badge",
-  //   icon: ShieldCheck,
-  //   title: "Trust Badge Service",
-  //   description: "Users can get a trust badge for their services from Ayodhya Serenity.",
-  //   process: "Submit your details → our team reviews it → listed within 24 hours.",
-  //   highlight: "Verified & Authentic.",
-  //   buttonText: "Get a Trust Badge",
-  //   route: "/trust-badge",
-  // },
 ];
 
 const Services = () => {
@@ -72,21 +59,29 @@ const Services = () => {
         ]}
       />
 
-      <main className="pt-16 pb-12 min-h-screen flex flex-col">
-        <section className="section-padding bg-gradient-warm pb-6 md:pb-10 shrink-0">
+      <main className="bg-[#000000] text-[#F9F9F6] pt-16 pb-12 min-h-screen flex flex-col selection:bg-[#FF6B00] selection:text-black">
+        {/* Header */}
+        <section className="py-24 md:py-36 px-6 md:px-16 bg-gradient-warm border-b-[0.5px] border-white/5 shrink-0">
           <div className="max-w-4xl mx-auto text-center">
-            <SectionHeading
-              label="Our Services"
-              title="Empowering Businesses, Transport Providers, and Organizations"
-              subtitle="Seamlessly connect with millions of visitors exploring Ayodhya"
-            />
+            <span className="block text-xs uppercase tracking-[0.3em] text-[#9AAB9B] font-medium mb-4">
+              Our Services
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-['Clash_Display'] font-bold tracking-tighter leading-[1.0] text-wrap-balance mb-6 text-[#F9F9F6]">
+              Empowering Businesses,<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#F9F9F6]">
+                Transport & Culture
+              </span>
+            </h1>
+            <p className="font-['Plus_Jakarta_Sans'] text-base md:text-lg text-[#F9F9F6]/80 leading-relaxed max-w-2xl mx-auto">
+              Seamlessly connect with millions of visitors exploring Ayodhya's timeless heritage.
+            </p>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="px-4 py-8 md:py-12 bg-background flex-grow">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <section className="px-6 md:px-16 py-20 md:py-32 bg-[#000000] flex-grow">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-12">
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
@@ -95,48 +90,47 @@ const Services = () => {
                     id={service.id}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group bg-card rounded-xl border border-border/40 overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/20 transition-all flex flex-col h-full"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20, delay: index * 0.05 }}
+                    className="flex flex-col space-y-6 group"
                   >
-                    <div className="p-5 md:p-6 flex flex-col flex-grow">
-                      <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-primary group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shrink-0">
-                        <Icon size={24} strokeWidth={1.5} />
-                      </div>
+                    <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00] group-hover:text-black transition-colors duration-300">
+                      <Icon size={20} strokeWidth={1} />
+                    </div>
 
-                      <h3 className="font-display text-xl font-bold leading-tight mb-3">
-                        {service.title}
-                      </h3>
+                    <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">
+                      {service.title}
+                    </h3>
 
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
-                        {service.description}
+                    <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/75 leading-relaxed min-h-[70px]">
+                      {service.description}
+                    </p>
+
+                    <div className="border-t-[0.5px] border-white/10 pt-4 space-y-2">
+                      <h4 className="text-[10px] font-bold text-[#9AAB9B] uppercase tracking-widest">
+                        Process
+                      </h4>
+                      <p className="text-xs text-[#F9F9F6]/60 leading-relaxed">
+                        {service.process}
                       </p>
+                    </div>
 
-                      <div className="bg-muted/50 rounded-lg p-3.5 mb-5 border border-border/50 shrink-0">
-                        <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary" /> Process
-                        </h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          {service.process}
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-500 font-['Plus_Jakarta_Sans']">
+                      <CheckCircle2 size={14} strokeWidth={1.5} />
+                      <span>{service.highlight}</span>
+                    </div>
 
-                      <div className="flex items-center gap-2 mb-6 text-sm font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
-                        <CheckCircle2 size={16} />
-                        <span>{service.highlight}</span>
-                      </div>
-
-                      <div className="mt-auto shrink-0">
-                        <Button
-                          asChild
-                          className="w-full bg-gradient-saffron text-primary-foreground hover:shadow-md transition-all duration-300 group/btn"
-                        >
-                          <Link to={service.route}>
-                            {service.buttonText}
-                            <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                          </Link>
-                        </Button>
-                      </div>
+                    <div className="pt-4 mt-auto">
+                      <motion.button
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn w-full bg-[#FF6B00] text-black font-['Plus_Jakarta_Sans'] font-semibold px-6 py-3.5 rounded-none uppercase text-[10px] tracking-widest transition-all duration-300"
+                      >
+                        <Link to={service.route} className="flex items-center justify-center gap-2">
+                          {service.buttonText}
+                          <ArrowRight size={14} strokeWidth={1.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        </Link>
+                      </motion.button>
                     </div>
                   </motion.article>
                 );

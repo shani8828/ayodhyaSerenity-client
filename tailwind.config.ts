@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', "Georgia", "serif"],
-        body: ['"DM Sans"', "system-ui", "sans-serif"],
+        display: ['"Clash Display"', '"Syne"', "sans-serif"],
+        body: ['"Plus Jakarta Sans"', '"Inter"', "sans-serif"],
       },
 
       colors: {

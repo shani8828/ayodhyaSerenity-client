@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck, ArrowRight, LayoutGrid, Flame, Landmark, Waves, Store, Wrench, MapPin, StoreIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import { Link } from "react-router-dom";
@@ -38,7 +37,6 @@ const allProjects: ProjectItem[] = [
 ];
 
 const Projects = () => {
-  const [loaded, setLoaded] = useState<Record<string, boolean>>({});
   const [activeTab, setActiveTab] = useState("all");
 
   const filteredProjects = activeTab === "all"
@@ -57,147 +55,149 @@ const Projects = () => {
         ]}
       />
 
-      <main className="pt-16 pb-12 min-h-screen flex flex-col">
-        <section className="section-padding bg-gradient-warm pb-6 md:pb-10 shrink-0">
+      <main className="bg-[#000000] text-[#F9F9F6] pt-16 pb-12 min-h-screen flex flex-col selection:bg-[#FF6B00] selection:text-black">
+        {/* Header Section */}
+        <section className="py-24 md:py-36 px-6 md:px-16 bg-gradient-warm pb-8 md:pb-12 shrink-0 border-b-[0.5px] border-white/5">
           <div className="max-w-4xl mx-auto text-center">
             <SectionHeading
               label="Our Work"
               title="Ayodhya Serenity - Verified Digital Projects"
               subtitle="Every digital platform we've built for Ayodhya's landmarks - verified, authentic, and trusted."
             />
-          </div>
 
-          {/* Maps Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 flex justify-center"
-          >
-            <Button asChild variant="outline" className="rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary transition-all">
-              <Link to="maps" className="flex items-center gap-2">
-                <MapPin size={16} />View Projects on Map
-              </Link>
-            </Button>
-          </motion.div>
+            {/* Map Navigation Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, type: "spring", stiffness: 100, damping: 20 }}
+              className="mt-8 flex justify-center"
+            >
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group border border-white/20 text-[#F9F9F6] font-['Plus_Jakarta_Sans'] font-semibold px-6 py-3.5 rounded-none uppercase text-[10px] tracking-widest transition-all duration-300 hover:bg-white/5"
+              >
+                <Link to="maps" className="flex items-center gap-2">
+                  <MapPin size={12} strokeWidth={1.5} className="text-[#FF6B00]" />
+                  View Projects on Map
+                </Link>
+              </motion.button>
+            </motion.div>
+          </div>
         </section>
 
         {/* Sticky Filter Pills Container */}
-        <section className="sticky top-16 z-40 bg-background/80 backdrop-blur-md border-y border-border/40 py-3 md:py-4 shadow-sm shrink-0">
-          <div className="max-w-6xl mx-auto px-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <section className="sticky top-16 z-40 bg-[#000000]/80 backdrop-blur-xl border-y border-white/5 py-4 shadow-sm shrink-0 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="max-w-7xl mx-auto px-6 md:px-16">
             <div className="flex items-center justify-start md:justify-center gap-3 w-max mx-auto md:w-auto">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveTab(cat.id)}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === cat.id
-                    ? "bg-primary text-primary-foreground shadow-md scale-105"
-                    : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+              {categories.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveTab(cat.id)}
+                    className={`flex items-center gap-2 px-5 py-2.5 rounded-none text-xs font-semibold uppercase tracking-widest font-['Plus_Jakarta_Sans'] transition-all duration-300 ${
+                      activeTab === cat.id
+                        ? "bg-[#FF6B00] text-black shadow-md"
+                        : "bg-white/5 text-[#F9F9F6]/60 hover:text-[#F9F9F6] hover:bg-white/10"
                     }`}
-                  aria-label={`Filter by ${cat.label}`}
-                  aria-pressed={activeTab === cat.id}
-                >
-                  <cat.icon size={16} className={activeTab === cat.id ? "animate-pulse" : ""} />
-                  {cat.label}
-                </button>
-              ))}
+                    aria-label={`Filter by ${cat.label}`}
+                    aria-pressed={activeTab === cat.id}
+                  >
+                    <Icon size={12} strokeWidth={1.5} className={activeTab === cat.id ? "animate-pulse" : ""} />
+                    {cat.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <section className="px-4 py-8 md:py-12 bg-background flex-grow">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              layout
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-            >
-              <AnimatePresence mode="popLayout">
+        {/* Project Grid */}
+        <section className="px-6 md:px-16 py-16 md:py-24 bg-[#000000] flex-grow">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12 lg:gap-16">
+              <AnimatePresence mode="wait">
                 {filteredProjects.map((p, i) => (
                   <motion.article
-                    layout
                     key={p.name}
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 20 }}
-                    className="group bg-card rounded-xl border border-border/40 overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/20 transition-all flex flex-col h-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ duration: 0.3, delay: Math.min(i * 0.04, 0.2) }}
+                    className="flex flex-col space-y-6 group"
                   >
-                    <div className="relative overflow-hidden h-[200px] shrink-0 bg-muted">
-                      {!loaded[p.name] && (
-                        <div className="absolute inset-0 animate-pulse bg-neutral-200 dark:bg-neutral-800" />
-                      )}
+                    {/* Visual block - cinematic scaling */}
+                    <div className="relative overflow-hidden bg-[#0a0a0a] aspect-[16/10]">
                       <img
                         src={p.img}
                         alt={p.alt}
                         title={`${p.name} – verified by Ayodhya Serenity`}
                         loading="lazy"
                         decoding="async"
-                        onLoad={() => setLoaded(prev => ({ ...prev, [p.name]: true }))}
-                        className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${loaded[p.name] ? "opacity-100" : "opacity-0"}`}
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
-                    <div className="p-5 md:p-6 flex flex-col flex-grow">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <h3 className="font-display text-lg font-bold leading-tight line-clamp-2">{p.name}</h3>
+
+                    <div className="flex flex-col flex-grow space-y-4">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">{p.name}</h3>
                         {p.verified && (
                           <div className="shrink-0 pt-1" title="Verified by Ayodhya Serenity">
-                            <ShieldCheck size={20} className="text-primary" aria-label="Verified by Ayodhya Serenity" />
+                            <ShieldCheck size={18} className="text-[#FF6B00]" strokeWidth={1.5} aria-label="Verified by Ayodhya Serenity" />
                           </div>
                         )}
                       </div>
 
                       {p.location && (
-                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3 font-medium">
-                          <MapPin size={14} className="text-primary/70 shrink-0" />
+                        <div className="flex items-center gap-1.5 text-xs text-[#9AAB9B] font-bold uppercase tracking-widest font-['Plus_Jakarta_Sans']">
+                          <MapPin size={12} strokeWidth={1.5} className="text-[#FF6B00]" />
                           <span className="truncate">{p.location}</span>
                         </div>
                       )}
 
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                      <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/75 leading-relaxed flex-grow min-h-[60px]">
                         {p.desc}
                       </p>
 
-                      <div className="mt-auto">
-                        <Button
-                          asChild
-                          className="w-full bg-gradient-saffron text-primary-foreground hover:shadow-md transition-all duration-300 group/btn"
+                      <div className="pt-2 mt-auto">
+                        <motion.button
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="group/btn w-full bg-[#FF6B00] text-black font-['Plus_Jakarta_Sans'] font-semibold px-6 py-3.5 rounded-none uppercase text-[10px] tracking-widest transition-all duration-300"
                         >
-                          <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${p.name} website`}>
+                          <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2" aria-label={`Visit ${p.name} website`}>
                             Visit Website
-                            <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                            <ArrowRight size={14} strokeWidth={1.5} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
                           </a>
-                        </Button>
+                        </motion.button>
                       </div>
                     </div>
                   </motion.article>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             {filteredProjects.length === 0 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-20"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4 text-muted-foreground">
-                  <LayoutGrid size={24} />
+              <div className="text-center py-24 space-y-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-white/5 text-[#9AAB9B] mb-2">
+                  <LayoutGrid size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-medium mb-2">No projects found</h3>
-                <p className="text-muted-foreground">Currently there are no projects in this category.</p>
-              </motion.div>
+                <h3 className="text-lg font-['Clash_Display'] font-bold">No projects found</h3>
+                <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#9AAB9B]">Currently there are no projects in this category.</p>
+              </div>
             )}
-            {/* Internal Links  */}
-            <div className="text-center mt-12 md:mt-16 pt-8 border-t border-border/40">
-              <p className="text-muted-foreground">
+
+            {/* Bottom Links */}
+            <div className="text-center mt-20 pt-12 border-t border-white/5 font-['Plus_Jakarta_Sans']">
+              <p className="text-[#F9F9F6]/60 text-sm leading-relaxed">
                 Want to be part of the Ayodhya Serenity network? <br className="md:hidden" />
-                <Link to="/trust-badge" className="text-primary font-medium hover:underline inline-flex items-center gap-1 mt-2 md:mt-0 md:ml-1">
-                  Apply for the Trust Badge <ArrowRight size={14} />
+                <Link to="/trust-badge" className="text-[#FF6B00] font-semibold hover:underline inline-flex items-center gap-1.5 mt-2 md:mt-0 md:ml-1">
+                  Apply for the Trust Badge <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>
-                <span className="hidden md:inline mx-2 text-border">•</span>
-                <Link to="/contact" className="text-primary font-medium hover:underline inline-flex items-center gap-1 mt-2 md:mt-0">
-                  Contact our team <ArrowRight size={14} />
+                <span className="hidden md:inline mx-3 text-white/10">•</span>
+                <Link to="/contact" className="text-[#FF6B00] font-semibold hover:underline inline-flex items-center gap-1.5 mt-2 md:mt-0">
+                  Contact our team <ArrowRight size={12} strokeWidth={1.5} />
                 </Link>
               </p>
             </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Users, Scale, Compass, BookOpen, Camera } from "lucide-react";
+import { Code, Users, Scale, Compass, BookOpen, Camera, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
@@ -25,33 +25,51 @@ const Team = () => (
       ]}
     />
 
-    <main className="pt-16">
-      <section className="section-padding bg-gradient-warm">
-        <SectionHeading label="Our People" title="The Team Behind Ayodhya Serenity" subtitle="A diverse team united by passion for Ayodhya's heritage." />
+    <main className="bg-[#000000] text-[#F9F9F6] selection:bg-[#FF6B00] selection:text-black">
+      <section className="py-24 md:py-36 px-6 md:px-16 bg-gradient-warm border-b-[0.5px] border-white/5">
+        <div className="max-w-4xl mx-auto text-center">
+          <SectionHeading 
+            label="Our People" 
+            title="The Team Behind Ayodhya Serenity" 
+            subtitle="A diverse team united by passion for Ayodhya's heritage." 
+          />
+        </div>
       </section>
 
-      <section className="section-padding bg-background">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teams.map((t, i) => (
-            <motion.div
-              key={t.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="bg-card rounded-xl p-6 shadow-sm hover:border-primary border transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <t.icon size={24} className="text-primary" aria-hidden="true" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">{t.title}</h3>
-              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{t.desc}</p>
-            </motion.div>
-          ))}
+      <section className="py-20 md:py-32 px-6 md:px-16">
+        <div className="max-w-6xl mx-auto space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            {teams.map((t, i) => {
+              const Icon = t.icon;
+              return (
+                <motion.div
+                  key={t.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: i * 0.05 }}
+                  className="space-y-4 group"
+                >
+                  <div className="w-10 h-10 rounded-none bg-white/5 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00] group-hover:text-black transition-colors duration-300">
+                    <Icon size={20} strokeWidth={1} />
+                  </div>
+                  <h3 className="font-['Clash_Display'] text-2xl font-bold tracking-tight text-[#F9F9F6]">{t.title}</h3>
+                  <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/70 leading-relaxed">{t.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <div className="text-center pt-12 border-t-[0.5px] border-white/10 font-['Plus_Jakarta_Sans']">
+            <p className="text-[#F9F9F6]/60 mb-4 text-sm">
+              Interested in joining Ayodhya Serenity? 
+            </p>
+            <Link to="/contact" className="text-xs uppercase font-bold tracking-widest text-[#FF6B00] hover:text-[#F9F9F6] transition-colors inline-flex items-center gap-2 group">
+              Contact us to explore opportunities
+              <ArrowRight strokeWidth={1.5} className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
-        <p className="text-center text-muted-foreground mt-8">
-          Interested in joining Ayodhya Serenity? <Link to="/contact" className="text-primary hover:underline">Contact us</Link> to explore opportunities.
-        </p>
       </section>
     </main>
   </>

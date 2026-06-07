@@ -120,15 +120,15 @@ export default function SarthiChat() {
   };
 
   return (
-    <div className="flex w-full justify-center items-center p-0">
+    <div className="flex w-full justify-center items-center p-0 selection:bg-[#FF6B00] selection:text-black">
       <AnimatePresence>
         {!isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-4 md:bottom-8 z-50 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl rounded-[2rem] p-1 md:p-1.5 pl-2 md:pl-5 flex items-center justify-center gap-1 md:gap-2 focus-within:ring-2 focus-within:ring-primary/20 transition-all hover:shadow-primary/10 w-72 md:w-96"
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed bottom-6 z-50 bg-[#000000]/60 backdrop-blur-xl border border-white/10 shadow-2xl rounded-none p-1.5 pl-4 flex items-center justify-center gap-2 focus-within:border-[#FF6B00] transition-all duration-300 w-72 md:w-96"
           >
             <div className="relative w-full">
               <textarea
@@ -137,36 +137,36 @@ export default function SarthiChat() {
                 value={initialInput}
                 onChange={handleInitialInput}
                 onKeyDown={handleInitialKeyDown}
-                className="w-full bg-transparent resize-none outline-none py-1 md:py-2 lg:py-3 text-[15px] max-h-[100px] flex-1 leading-relaxed no-scrollbar placeholder-transparent font-medium"
+                className="w-full bg-transparent resize-none outline-none py-2 text-xs font-semibold uppercase tracking-widest text-[#F9F9F6] max-h-[100px] flex-1 leading-relaxed no-scrollbar placeholder-transparent font-['Plus_Jakarta_Sans']"
               />
               {!initialInput && (
-                <div className="absolute top-1 md:top-2 lg:top-3 left-0 w-full overflow-hidden pointer-events-none">
+                <div className="absolute top-2 left-0 w-full overflow-hidden pointer-events-none">
                   <div
-                    className="inline-block whitespace-nowrap animate-marquee text-neutral-500"
-                    style={{ animationDuration: '9s' }}
+                    className="inline-block whitespace-nowrap animate-marquee text-[#9AAB9B] text-[10px] uppercase font-bold tracking-widest font-['Plus_Jakarta_Sans']"
+                    style={{ animationDuration: '10s' }}
                   >
-                    Ask anything about Ayodhya Serenity...
+                    Ask anything about Ayodhya...
                   </div>
                 </div>
               )}
             </div>
 
             <style>{`
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-  .animate-marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: marquee linear infinite;
-  }
-`}</style>
+              @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+              }
+              .animate-marquee {
+                display: inline-block;
+                white-space: nowrap;
+                animation: marquee linear infinite;
+              }
+            `}</style>
             <button
               onClick={handleInitialSubmit}
-              className="w-12 h-12 shrink-0 rounded-full bg-primary text-primary-foreground flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-md mr-0.5"
+              className="w-10 h-10 shrink-0 rounded-none bg-[#FF6B00] text-black flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-md"
             >
-              {initialInput.trim() ? <Send size={18} className="translate-x-[1px]" /> : <MessageCircle size={22} />}
+              {initialInput.trim() ? <Send size={14} strokeWidth={1.5} className="translate-x-[1px]" /> : <MessageCircle size={16} strokeWidth={1.5} />}
             </button>
           </motion.div>
         )}
@@ -178,31 +178,31 @@ export default function SarthiChat() {
             initial={{ opacity: 0, y: 40, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.98 }}
-            transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed z-50 flex flex-col overflow-hidden bg-white dark:bg-neutral-900 backdrop-blur-2xl shadow-2xl transition-all inset-0 w-full h-full rounded-none md:inset-auto md:bottom-6 md:right-6 md:w-[420px] md:h-[650px] md:max-h-[85vh] md:rounded-3xl md:border md:border-black/5 md:dark:border-white/10"
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed z-50 flex flex-col overflow-hidden bg-[#000000]/90 backdrop-blur-2xl shadow-2xl transition-all inset-0 w-full h-full rounded-none md:inset-auto md:bottom-6 md:right-6 md:w-[420px] md:h-[650px] md:max-h-[85vh] md:border md:border-white/5"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-black/5 dark:border-white/5 bg-neutral-50/80 dark:bg-black/20">
+            <div className="flex items-center justify-between p-5 border-b border-white/5 bg-[#000000]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/15 dark:bg-primary/20 flex items-center justify-center">
-                  <Bot size={22} className="text-primary" />
+                <div className="w-9 h-9 rounded-none bg-[#FF6B00]/10 flex items-center justify-center">
+                  <Bot size={18} strokeWidth={1} className="text-[#FF6B00]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[15px] leading-tight text-neutral-900 dark:text-neutral-100">Ayodhya Sarthi</h3>
-                  <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-medium uppercase tracking-wider mt-0.5">Digital Pilgrimage Guide</p>
+                  <h3 className="font-['Clash_Display'] font-bold text-sm tracking-tight text-[#F9F9F6]">Ayodhya Sarthi</h3>
+                  <p className="text-[9px] text-[#9AAB9B] font-bold uppercase tracking-widest mt-0.5 font-['Plus_Jakarta_Sans']">Digital Pilgrimage Guide</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
+                className="w-8 h-8 rounded-none bg-white/5 flex items-center justify-center text-[#9AAB9B] hover:text-[#F9F9F6] hover:bg-white/10 transition-all"
                 aria-label="Close Chat"
               >
-                <X size={18} />
+                <X size={16} strokeWidth={1.5} />
               </button>
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-6 no-scrollbar scroll-smooth">
+            <div className="flex-1 overflow-y-auto p-5 space-y-6 no-scrollbar scroll-smooth bg-[#000000]/20">
               {messages.map((msg, idx) => (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -211,31 +211,32 @@ export default function SarthiChat() {
                   className={`flex gap-3 max-w-full ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.role === "assistant" && (
-                    <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-1 shadow-sm">
-                      <Bot size={16} className="text-primary" />
+                    <div className="w-7 h-7 rounded-none bg-white/5 flex items-center justify-center shrink-0 mt-1">
+                      <Bot size={14} strokeWidth={1} className="text-[#FF6B00]" />
                     </div>
                   )}
                   <div
-                    className={`max-w-[82%] px-4 py-3 text-[14.5px] leading-relaxed shadow-sm ${msg.role === "user"
-                      ? "bg-primary text-primary-foreground rounded-[1.3rem] rounded-tr-sm"
-                      : "bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-black/5 dark:border-white/5 rounded-[1.3rem] rounded-tl-sm"
-                      }`}
+                    className={`max-w-[82%] px-4 py-3 text-sm leading-relaxed shadow-sm font-['Plus_Jakarta_Sans'] ${
+                      msg.role === "user"
+                        ? "bg-[#FF6B00] text-black rounded-none"
+                        : "bg-white/5 text-[#F9F9F6]/90 border border-white/5 rounded-none"
+                    }`}
                   >
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm, remarkBreaks]}
                       components={{
-                        a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 underline underline-offset-2 decoration-blue-200 hover:decoration-blue-600 transition-colors" />,
-                        h1: ({ node, ...props }) => <h1 {...props} className="text-lg font-bold mt-4 mb-2 first:mt-0" />,
-                        h2: ({ node, ...props }) => <h2 {...props} className="text-md font-bold mt-3 mb-2 first:mt-0" />,
-                        h3: ({ node, ...props }) => <h3 {...props} className="text-base font-semibold mt-3 mb-1 first:mt-0" />,
-                        p: ({ node, ...props }) => <p {...props} className="mb-3 last:mb-0" />,
-                        ul: ({ node, ...props }) => <ul {...props} className="list-disc ml-5 mb-3 space-y-1" />,
-                        ol: ({ node, ...props }) => <ol {...props} className="list-decimal ml-5 mb-3 space-y-1" />,
+                        a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" className="text-[#FF6B00] underline underline-offset-2 hover:text-[#F9F9F6] transition-colors" />,
+                        h1: ({ node, ...props }) => <h1 {...props} className="text-base font-['Clash_Display'] font-bold mt-4 mb-2 first:mt-0 text-[#F9F9F6]" />,
+                        h2: ({ node, ...props }) => <h2 {...props} className="text-sm font-['Clash_Display'] font-bold mt-3 mb-2 first:mt-0 text-[#F9F9F6]" />,
+                        h3: ({ node, ...props }) => <h3 {...props} className="text-xs font-['Clash_Display'] font-bold mt-3 mb-1 first:mt-0 text-[#F9F9F6]" />,
+                        p: ({ node, ...props }) => <p {...props} className="mb-3 last:mb-0 text-[#F9F9F6]/80" />,
+                        ul: ({ node, ...props }) => <ul {...props} className="list-disc ml-5 mb-3 space-y-1 text-[#F9F9F6]/75" />,
+                        ol: ({ node, ...props }) => <ol {...props} className="list-decimal ml-5 mb-3 space-y-1 text-[#F9F9F6]/75" />,
                         li: ({ node, ...props }) => <li {...props} className="pl-1" />,
-                        strong: ({ node, ...props }) => <strong {...props} className="font-semibold text-inherit" />,
+                        strong: ({ node, ...props }) => <strong {...props} className="font-bold text-[#F9F9F6]" />,
                         code: ({ node, inline, ...props }: any) =>
-                          inline ? <code {...props} className="bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded-md text-[13px] font-mono whitespace-pre-wrap" /> :
-                            <code {...props} className="block w-full bg-neutral-100 dark:bg-neutral-900 p-3 rounded-xl text-[13px] font-mono overflow-x-auto mb-3 border border-black/5 dark:border-white/5" />
+                          inline ? <code {...props} className="bg-white/5 px-1.5 py-0.5 text-xs font-mono text-[#FF6B00]" /> :
+                            <code {...props} className="block w-full bg-black/40 p-3 rounded-none text-xs font-mono overflow-x-auto mb-3 border border-white/5 text-[#9AAB9B]" />
                       }}
                     >
                       {msg.content}
@@ -246,13 +247,13 @@ export default function SarthiChat() {
 
               {isLoading && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex gap-3 justify-start max-w-full">
-                  <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center shrink-0 mt-1 shadow-sm">
-                    <Bot size={16} className="text-primary" />
+                  <div className="w-7 h-7 rounded-none bg-white/5 flex items-center justify-center shrink-0 mt-1">
+                    <Bot size={14} strokeWidth={1} className="text-[#FF6B00]" />
                   </div>
-                  <div className="bg-white dark:bg-neutral-800 border border-black/5 dark:border-white/5 px-4 py-4 rounded-[1.3rem] rounded-tl-sm shadow-sm flex items-center justify-center space-x-1.5 h-[46px]">
-                    <motion.div className="w-1.5 h-1.5 bg-primary/60 rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0 }} />
-                    <motion.div className="w-1.5 h-1.5 bg-primary/60 rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }} />
-                    <motion.div className="w-1.5 h-1.5 bg-primary/60 rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }} />
+                  <div className="bg-white/5 border border-white/5 px-4 py-3 rounded-none flex items-center justify-center space-x-1.5 h-10">
+                    <motion.div className="w-1 h-1 bg-[#FF6B00] rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0 }} />
+                    <motion.div className="w-1 h-1 bg-[#FF6B00] rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }} />
+                    <motion.div className="w-1 h-1 bg-[#FF6B00] rounded-full" animate={{ y: [0, -4, 0] }} transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }} />
                   </div>
                 </motion.div>
               )}
@@ -260,11 +261,10 @@ export default function SarthiChat() {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 bg-white dark:bg-neutral-900 border-t border-black/5 dark:border-white/5 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
+            <div className="p-4 bg-[#000000] border-t border-white/5">
               <form
                 onSubmit={handleSubmit}
-                className="relative flex items-end bg-neutral-100 dark:bg-neutral-800/50 rounded-3xl p-1.5 pl-4 border border-transparent focus-within:border-primary/20 focus-within:bg-white dark:focus-within:bg-neutral-900 focus-within:shadow-sm transition-all"
-                style={{ borderRadius: '24px' }}
+                className="relative flex items-end bg-white/5 rounded-none p-1.5 pl-4 border border-transparent focus-within:border-white/10 transition-all"
               >
                 <textarea
                   ref={textareaRef}
@@ -273,16 +273,16 @@ export default function SarthiChat() {
                   onChange={handleInput}
                   onKeyDown={handleKeyDown}
                   placeholder="Reply to Sarthi..."
-                  className="w-full bg-transparent resize-none outline-none py-2.5 text-[15px] xl:text-[15px] max-h-[120px] no-scrollbar placeholder:text-neutral-500 mb-0.5"
+                  className="w-full bg-transparent resize-none outline-none py-2 text-xs font-semibold uppercase tracking-wider text-[#F9F9F6] max-h-[120px] no-scrollbar placeholder-[#9AAB9B] font-['Plus_Jakarta_Sans']"
                   disabled={isLoading}
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || isLoading}
-                  className="w-[38px] h-[38px] shrink-0 mb-1 rounded-full bg-primary text-primary-foreground disabled:opacity-50 disabled:bg-neutral-200 disabled:text-neutral-400 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-600 flex items-center justify-center transition-transform active:scale-95 ml-1 mr-0.5"
+                  className="w-9 h-9 shrink-0 rounded-none bg-[#FF6B00] text-black disabled:opacity-30 disabled:bg-white/10 disabled:text-[#9AAB9B] flex items-center justify-center transition-all ml-1"
                   aria-label="Send message"
                 >
-                  <Send size={16} className="translate-x-[1px]" />
+                  <Send size={12} strokeWidth={2} className="translate-x-[1px]" />
                 </button>
               </form>
             </div>

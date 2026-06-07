@@ -1,82 +1,76 @@
 import { Link } from "react-router-dom";
-// import logo from "@/assets/logo.png";
 
 const Footer = () => (
-  <footer className="bg-foreground text-primary-foreground">
-    <div className="max-w-7xl mx-auto pt-10 md:pt-16 pb-4 px-4 md:pb-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 pb-6 gap-10">
-        <div className="md:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            {/* <img src={logo} alt="Ayodhya Serenity" className="h-10 w-10" /> */}
-            <span className="font-display text-lg font-bold">Ayodhya Serenity</span>
+  <footer className="bg-[#000000] text-[#F9F9F6] border-t-[0.5px] border-white/10 selection:bg-[#FF6B00] selection:text-black">
+    <div className="max-w-7xl mx-auto pt-16 pb-8 px-6 md:px-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
+        {/* Brand Column */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="flex items-center gap-2">
+            <span className="font-['Clash_Display'] text-xl font-bold tracking-tighter text-[#F9F9F6]">
+              Ayodhya <span className="text-[#FF6B00]">Serenity</span>
+            </span>
           </div>
-          <p className="text-sm opacity-70 leading-relaxed">
-            The trusted digital gateway to Ayodhya's temples, landmarks, and sacred destinations.
+          <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/60 leading-relaxed max-w-sm">
+            The trusted digital gateway to Ayodhya's temples, landmarks, and sacred destinations. Crafting premium digital experiences for timeless spiritual heritage.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+
+        {/* Links Grid */}
+        <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
           <div>
-            <h4 className="font-display font-semibold mb-4 text-saffron-light">Quick Links</h4>
-            <ul className="space-y-2 text-sm opacity-80">
-              <li><Link to="/" className="hover:opacity-100 transition-opacity link-underline">Home</Link></li>
-              <li><Link to="/about" className="hover:opacity-100 transition-opacity link-underline">About Us</Link></li>
-              <li><Link to="/projects" className="hover:opacity-100 transition-opacity link-underline">Our Projects</Link></li>
-              <li><Link to="/team" className="hover:opacity-100 transition-opacity link-underline">Our Team</Link></li>
+            <h4 className="font-['Clash_Display'] text-xs font-bold uppercase tracking-widest text-[#9AAB9B] mb-6">Quick Links</h4>
+            <ul className="space-y-4 text-xs font-semibold uppercase tracking-wider font-['Plus_Jakarta_Sans']">
+              <li><Link to="/" className="text-[#F9F9F6]/60 hover:text-[#FF6B00] transition-colors">Home</Link></li>
+              <li><Link to="/about" className="text-[#F9F9F6]/60 hover:text-[#FF6B00] transition-colors">About Us</Link></li>
+              <li><Link to="/projects" className="text-[#F9F9F6]/60 hover:text-[#FF6B00] transition-colors">Our Projects</Link></li>
+              <li><Link to="/team" className="text-[#F9F9F6]/60 hover:text-[#FF6B00] transition-colors">Our Team</Link></li>
             </ul>
           </div>
+
           <div>
-            <h4 className="font-display font-semibold mb-4 text-saffron-light">Programs</h4>
-            <ul className="space-y-2 text-sm opacity-80">
-              {/* <li><Link to="/photo-competition" className="hover:opacity-100 transition-opacity link-underline">Photo Competition</Link></li> */}
-              <li><Link to="/services" className="hover:opacity-100 transition-opacity link-underline">Our Services</Link></li>
-              {/* <li><Link to="/trust-badge" className="hover:opacity-100 transition-opacity link-underline">Trust Badge Program</Link></li> */}
+            <h4 className="font-['Clash_Display'] text-xs font-bold uppercase tracking-widest text-[#9AAB9B] mb-6">Programs & Services</h4>
+            <ul className="space-y-4 text-xs font-semibold uppercase tracking-wider font-['Plus_Jakarta_Sans']">
+              <li><Link to="/services" className="text-[#F9F9F6]/60 hover:text-[#FF6B00] transition-colors">Our Services</Link></li>
             </ul>
           </div>
-        </div>
-        <div>
-          <h4 className="font-display font-semibold mb-4 text-saffron-light">Get in Touch</h4>
-          <ul className="space-y-3 text-sm opacity-80">
-            {/* Primary Email */}
-            <li>
-              <p className="block text-xs uppercase tracking-wider opacity-60 mb-1">Email Us</p>
-              <a
-                href="mailto:info.ayodhyaserenity@gmail.com"
-                className="hover:opacity-100 transition-opacity text-base break-all link-underline"
-              >
-                info.ayodhyaserenity@gmail.com
-              </a>
-            </li>
 
-            {/* Alternative: Newsletter or Inquiry Link */}
-            <li>
-              <a href="/contact" className="hover:opacity-100 transition-opacity flex items-center gap-2 link-underline">
-                <span>Contact Us</span>
-                <span className="text-xs">→</span>
-              </a>
-            </li>
-
-            {/* Location/Hours - Better than empty social links */}
-            <li className="pt-2 border-t border-dashed border-white/10">
-              <p className="text-xs opacity-60">
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-['Clash_Display'] text-xs font-bold uppercase tracking-widest text-[#9AAB9B] mb-6">Get in Touch</h4>
+            <ul className="space-y-4 text-xs font-['Plus_Jakarta_Sans']">
+              <li>
+                <p className="uppercase text-[10px] tracking-widest text-[#9AAB9B] mb-1">Email Us</p>
+                <a
+                  href="mailto:info.ayodhyaserenity@gmail.com"
+                  className="text-sm font-medium text-[#F9F9F6] hover:text-[#FF6B00] transition-colors break-all"
+                >
+                  info.ayodhyaserenity@gmail.com
+                </a>
+              </li>
+              <li>
+                <Link to="/contact" className="text-xs uppercase font-semibold tracking-widest text-[#FF6B00] hover:text-[#F9F9F6] transition-colors flex items-center gap-1.5">
+                  Contact Us <span>→</span>
+                </Link>
+              </li>
+              <li className="text-[11px] text-[#F9F9F6]/40 leading-relaxed pt-2">
                 Based in Ayodhya, UP <br />
                 Response time: Within 24 hours
-              </p>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="flex flex-wrap justify-evenly gap-1 text-xs opacity-70 pt-3 pb-0 border-t border-primary-foreground/20">
-        <Link to="/privacy-policy" className="hover:opacity-100 transition-opacity link-underline">Privacy Policy</Link>
-        <span>·</span>
-        <Link to="/terms-and-conditions" className="hover:opacity-100 transition-opacity link-underline">Terms & Conditions</Link>
-        <span>·</span>
-        <Link to="/copyright-legal" className="hover:opacity-100 transition-opacity link-underline">Copyright & Legal Protection</Link>
-        <span>·</span>
-        <Link to="/site-map" className="hover:opacity-100 transition-opacity link-underline">Site Map</Link>
-      </div>
-      <div className="mt-10 border-primary-foreground/20 w-full flex justify-center items-center">
-        <div className="flex w-full justify-center items-center gap-4 text-xs opacity-60">
-          <p>© {new Date().getFullYear()} Ayodhya Serenity - All Rights Reserved.</p>
+
+      {/* Sub-footer Legal Links */}
+      <div className="border-t-[0.5px] border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] font-['Plus_Jakarta_Sans'] font-semibold uppercase tracking-widest text-[#9AAB9B] gap-6">
+        <div className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-3">
+          <Link to="/privacy-policy" className="hover:text-[#FF6B00] transition-colors">Privacy Policy</Link>
+          <Link to="/terms-and-conditions" className="hover:text-[#FF6B00] transition-colors">Terms & Conditions</Link>
+          <Link to="/copyright-legal" className="hover:text-[#FF6B00] transition-colors">Copyright & Legal</Link>
+          <Link to="/site-map" className="hover:text-[#FF6B00] transition-colors">Site Map</Link>
+        </div>
+        <div className="text-[#F9F9F6]/40 text-center md:text-right">
+          © {new Date().getFullYear()} Ayodhya Serenity. All Rights Reserved.
         </div>
       </div>
     </div>
