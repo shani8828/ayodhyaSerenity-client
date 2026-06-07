@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { APIProvider, Map, Marker, useMap, useMapsLibrary } from "@vis.gl/react-google-maps";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
-import { temples, landmarks, ghats, markets } from "../data/projects";
+import { temples, landmarks, ghats, markets, businesses } from "../data/projects";
 import { MapPin, Navigation, ExternalLink, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MapsInfoCard from "@/components/MapsInfoCard";
@@ -125,7 +125,8 @@ const MapsView = () => {
       ...temples.map(p => ({ ...p, type: 'Temple' })),
       ...landmarks.map(p => ({ ...p, type: 'Landmark' })),
       ...ghats.map(p => ({ ...p, type: 'Ghat' })),
-      ...markets.map(p => ({ ...p, type: 'Market' }))
+      ...markets.map(p => ({ ...p, type: 'Market' })),
+      ...businesses.map(p => ({ ...p, type: 'Business' }))
     ].filter(p => p.coordinates && p.coordinates.lat && p.coordinates.lng);
   }, []);
 

@@ -1,14 +1,15 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, ArrowRight, LayoutGrid, Flame, Landmark, Waves, Store, Wrench, MapPin } from "lucide-react";
+import { ShieldCheck, ArrowRight, LayoutGrid, Flame, Landmark, Waves, Store, Wrench, MapPin, StoreIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SectionHeading from "@/components/SectionHeading";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { tools, markets, landmarks, ghats, temples } from "@/data/projects";
+import { tools, markets, landmarks, ghats, temples, businesses } from "@/data/projects";
 
 const categories = [
   { id: "all", label: "All Projects", icon: LayoutGrid },
+  { id: "businesses", label: "Businesses", icon: StoreIcon },
   { id: "temples", label: "Temples", icon: Flame },
   { id: "landmarks", label: "Landmarks", icon: Landmark },
   { id: "ghats", label: "Ghats", icon: Waves },
@@ -32,6 +33,7 @@ const allProjects: ProjectItem[] = [
   ...landmarks.map(p => ({ ...p, category: "landmarks" })),
   ...ghats.map(p => ({ ...p, category: "ghats" })),
   ...markets.map(p => ({ ...p, category: "markets" })),
+  ...businesses.map(p => ({ ...p, category: "businesses" })),
   ...tools.map(p => ({ ...p, category: "tools" })),
 ];
 

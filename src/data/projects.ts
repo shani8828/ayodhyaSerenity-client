@@ -6,22 +6,103 @@ import barunBazar from "/images/hero-market.jpg";
 import ramKiPaidi from "/images/NightView_RamKiPaidi.jpg";
 import toolNagri from "/images/toolNagri.png";
 import axioManage from "/images/Axio-Manage_Ayodhya_Serenity.png";
+import niteshCom from "/images/niteshCom.png";
 
 export const tools = [
-  { name: "ToolNagri", img: toolNagri, desc: "Generate & Scan QR codes, barcodes, and access powerful utilities - all in one place. Fast, secure, and beautifully designed for everyday use.", link: "https://toolnagri.vercel.app", verified: true, alt: "ToolNagri QR code generator and barcode scanner, Ayodhya Serenity" },
-  { name: "Axio-Manage", img: axioManage, desc: "Organize tasks, habits, expenses, diaries, and contacts in one calm, focused workspace. Built for clarity, consistency, and momentum.", link: "https://axio-manage.vercel.app/", verified: true, alt: "Axio-Manage workspace, Ayodhya Serenity" },
-]
+  {
+    name: "ToolNagri",
+    img: toolNagri,
+    desc: "Generate & Scan QR codes, barcodes, and access powerful utilities - all in one place. Fast, secure, and beautifully designed for everyday use.",
+    link: "https://toolnagri.vercel.app",
+    verified: true,
+    alt: "ToolNagri QR code generator and barcode scanner, Ayodhya Serenity",
+  },
+  {
+    name: "Axio-Manage",
+    img: axioManage,
+    desc: "Organize tasks, habits, expenses, diaries, and contacts in one calm, focused workspace. Built for clarity, consistency, and momentum.",
+    link: "https://axio-manage.vercel.app/",
+    verified: true,
+    alt: "Axio-Manage workspace, Ayodhya Serenity",
+  },
+];
 export const markets = [
-  { coordinates: { lat: 26.682770707297127, lng: 82.03005584122769 }, name: "Barun Bazar Market, Ayodhya", location: "Ayodhya, Uttar Pradesh", img: barunBazar, desc: "A bustling market in Barun Bazar, Ayodhya, offering a variety of local goods and traditional crafts.", link: "https://barunbazar.vercel.app", verified: true, alt: "Ayodhya Serenity - Barun Bazar Market traditional shopping in Ayodhya" },
-]
+  {
+    coordinates: { lat: 26.682770707297127, lng: 82.03005584122769 },
+    name: "Barun Bazar Market, Ayodhya",
+    location: "Ayodhya, Uttar Pradesh",
+    img: barunBazar,
+    desc: "A bustling market in Barun Bazar, Ayodhya, offering a variety of local goods and traditional crafts.",
+    link: "https://barunbazar.vercel.app",
+    verified: true,
+    alt: "Ayodhya Serenity - Barun Bazar Market traditional shopping in Ayodhya",
+  },
+];
+export const businesses = [
+  {
+    coordinates: { lat: 26.671782969841367, lng: 82.01141471712849 },
+    name: "Nitesh Communications",
+    location: "Patkhauli Chauraha, Ayodhya, Uttar Pradesh",
+    img: niteshCom,
+    desc: "An E-Commerce, Mobile Repairs & Jan Seva Kendra giving best services in Ayodhya.",
+    link: "https://niteshcom.in",
+    verified: true,
+    alt: "Ayodhya Serenity | Nitesh Communications: An E-Commerce, Mobile Repairs & Jan Seva Kendra giving best services in Ayodhya.",
+  },
+];
 export const landmarks = [
-  { coordinates: { lat: 26.80802476668956, lng: 82.20907462916402 }, name: "Lata Mangeshkar Chowk", location: "Ayodhya, Uttar Pradesh", img: lataChowk, desc: "A beautifully designed landmark chowk in the heart of Ayodhya, honoring India's legendary singer Lata Mangeshkar.", link: "https://latamangeshkarchowk.vercel.app/", verified: true, alt: "Ayodhya Serenity - Lata Mangeshkar Chowk modern landmark in Ayodhya" },
-]
+  {
+    coordinates: { lat: 26.80802476668956, lng: 82.20907462916402 },
+    name: "Lata Mangeshkar Chowk",
+    location: "Ayodhya, Uttar Pradesh",
+    img: lataChowk,
+    desc: "A beautifully designed landmark chowk in the heart of Ayodhya, honoring India's legendary singer Lata Mangeshkar.",
+    link: "https://latamangeshkarchowk.vercel.app/",
+    verified: true,
+    alt: "Ayodhya Serenity - Lata Mangeshkar Chowk modern landmark in Ayodhya",
+  },
+];
 export const ghats = [
-  { coordinates: { lat: 26.809762471615816, lng: 82.20536202269955 }, name: "Ram Ki Paidi, Ayodhya", location: "Ayodhya, Uttar Pradesh", img: ramKiPaidi, desc: "A historic site in Ayodhya, known for its cultural significance and traditional practices like Deepotsav.", link: "https://ramkipaidi.vercel.app", verified: true, alt: "Ayodhya Serenity - Ram Ki Paidi historic site in Ayodhya" },
-]
+  {
+    coordinates: { lat: 26.809762471615816, lng: 82.20536202269955 },
+    name: "Ram Ki Paidi, Ayodhya",
+    location: "Ayodhya, Uttar Pradesh",
+    img: ramKiPaidi,
+    desc: "A historic site in Ayodhya, known for its cultural significance and traditional practices like Deepotsav.",
+    link: "https://ramkipaidi.vercel.app",
+    verified: true,
+    alt: "Ayodhya Serenity - Ram Ki Paidi historic site in Ayodhya",
+  },
+];
 export const temples = [
-  { coordinates: { lat: 26.795601002457804, lng: 82.20189205944634 }, name: "Hanuman Garhi, Ayodhya", location: "Ayodhya, Uttar Pradesh", img: hanumanGarhi, desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.", link: "https://hanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity - Hanuman Garhi Temple hilltop view in Ayodhya" },
-  { coordinates: { lat: 26.682918124789275, lng: 82.03038411076597 }, name: "Siddh Peeth Hanuman Garhi, Barun Bazar", location: "Ayodhya, Uttar Pradesh", img: siddhPeethHanumanGarhi, desc: "A sacred Ayodhya Siddh Peeth in Barun Bazar dedicated to Lord Hanuman, renowned for its ancient sanctity and spiritual power.", link: "https://siddhpeethhanumangarhi.vercel.app", verified: true, alt: "Ayodhya Serenity - Siddh Peeth Hanuman Garhi Mandir Barun Bazar temple in Ayodhya" },
-  { coordinates: { lat: 26.680497810758073, lng: 82.02041075520818 }, name: "Shravan Kumar Mandir", location: "Ayodhya, Uttar Pradesh", img: shravanMandir, desc: "A sacred shrine commemorating the story of Shravan Kumar, known for his unparalleled devotion to his parents.", link: "https://shravankumarmandir.vercel.app/", verified: true, alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya" },
-]
+  {
+    coordinates: { lat: 26.795601002457804, lng: 82.20189205944634 },
+    name: "Hanuman Garhi, Ayodhya",
+    location: "Ayodhya, Uttar Pradesh",
+    img: hanumanGarhi,
+    desc: "One of the most important temples in Ayodhya, dedicated to Lord Hanuman. The temple sits atop a hill and is reached by climbing 76 steps.",
+    link: "https://hanumangarhi.vercel.app",
+    verified: true,
+    alt: "Ayodhya Serenity - Hanuman Garhi Temple hilltop view in Ayodhya",
+  },
+  {
+    coordinates: { lat: 26.682918124789275, lng: 82.03038411076597 },
+    name: "Siddh Peeth Hanuman Garhi, Barun Bazar",
+    location: "Ayodhya, Uttar Pradesh",
+    img: siddhPeethHanumanGarhi,
+    desc: "A sacred Ayodhya Siddh Peeth in Barun Bazar dedicated to Lord Hanuman, renowned for its ancient sanctity and spiritual power.",
+    link: "https://siddhpeethhanumangarhi.vercel.app",
+    verified: true,
+    alt: "Ayodhya Serenity - Siddh Peeth Hanuman Garhi Mandir Barun Bazar temple in Ayodhya",
+  },
+  {
+    coordinates: { lat: 26.680497810758073, lng: 82.02041075520818 },
+    name: "Shravan Kumar Mandir",
+    location: "Ayodhya, Uttar Pradesh",
+    img: shravanMandir,
+    desc: "A sacred shrine commemorating the story of Shravan Kumar, known for his unparalleled devotion to his parents.",
+    link: "https://shravankumarmandir.vercel.app/",
+    verified: true,
+    alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya",
+  },
+];
