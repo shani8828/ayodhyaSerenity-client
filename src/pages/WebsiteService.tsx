@@ -2,7 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Code, Rocket, Palette, ArrowRight, CheckCircle2,
-  ExternalLink, Building2, Store, ShoppingCart, Play, Loader2
+  ExternalLink, Building2, ShoppingCart, Play, Loader2,
+  Clapperboard,
+  Bike,
+  Smartphone,
+  ArrowUpRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
@@ -58,23 +62,30 @@ const packages = [
 
 const templates = [
   {
+    name: "Real Estate Company",
+    icon: Building2,
+    link: "https://plotting-alpha.vercel.app/",
+  },
+  {
+    name: "Cinematic Studio",
+    icon: Clapperboard,
+    link: "https://cinematicstudio.vercel.app/",
+  },
+  {
     name: "E-Commerce Suite",
     icon: ShoppingCart,
     link: "https://ecommerce-rho-olive-50.vercel.app/",
-    description: "A fully-featured online store with cart, checkout, and inventory management."
   },
   {
     name: "Bike Agency Portal",
-    icon: Building2,
+    icon: Bike,
     link: "https://bikeagency.vercel.app/",
-    description: "Premium showcase platform for vehicle agencies with 3D models and smooth scrolling."
   },
   {
     name: "Mobile Shop App",
-    icon: Store,
+    icon: Smartphone,
     link: "https://mobileshop-seven.vercel.app/",
-    description: "Dynamic and clean catalog for mobile and electronic retailers."
-  }
+  },
 ];
 
 const WebsiteService = () => {
@@ -164,73 +175,72 @@ const WebsiteService = () => {
                 Portfolio Showcase
               </span>
               <h2 className="text-3xl md:text-5xl font-['Clash_Display'] font-bold tracking-tighter">
-                Luxurious Templates & Proven Work
+                High Quality Design Templates
               </h2>
               <p className="font-['Plus_Jakarta_Sans'] text-[#F9F9F6]/80 text-sm max-w-2xl mx-auto">
-                Explore our high-end, production-ready templates. Looking for our standard projects?{" "}
-                <Link to="/projects" className="text-[#FF6B00] hover:underline font-bold">
-                  View our average websites on the Projects page.
-                </Link>
+                Explore our high-end, luxurious, production-ready templates.
               </p>
             </div>
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {templates.map((template, index) => {
+                const Icon = template.icon;
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-12">
-              {templates.map((template, idx) => (
-                <motion.div
-                  key={template.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: idx * 0.05 }}
-                  className="flex flex-col space-y-6"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-['Clash_Display'] text-xl font-bold tracking-tight">{template.name}</h3>
-                    <a 
-                      href={template.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-[#9AAB9B] hover:text-[#FF6B00] transition-colors"
-                      title="Open in new tab"
-                    >
-                      <ExternalLink size={16} strokeWidth={1.5} />
-                    </a>
-                  </div>
+                return (
+                  <motion.a
+                    key={template.name}
+                    href={template.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.06,
+                      duration: 0.45,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    whileHover={{ y: -6 }}
+                    whileTap={{ scale: 0.985 }}
+                    className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d0d0d] p-6 transition-all duration-300 hover:border-[#9AAB9B]/30 hover:shadow-[0_20px_60px_rgba(255,107,0,0.08)]"
+                  >
+                    {/* Gradient Glow */}
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#FF6B00]/10 blur-3xl" />
+                      <div className="absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-[#9AAB9B]/10 blur-3xl" />
+                    </div>
 
-                  {/* On-Demand Interactive Sandbox Mockup */}
-                  <div className="relative h-[450px] w-full bg-[#0d0d0d] border border-white/10 flex flex-col justify-center items-center overflow-hidden">
-                    {activePreviews[template.name] ? (
-                      <iframe
-                        src={template.link}
-                        title={`Embedded preview of ${template.name}`}
-                        className="h-full w-full border-none"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="p-8 text-center space-y-6 flex flex-col items-center">
-                        <div className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center text-[#FF6B00]">
-                          <template.icon size={24} strokeWidth={1} />
+                    <div className="relative z-10">
+                      <div className="mb-10 flex items-start justify-between">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.04] border border-white/5 transition-all duration-300 group-hover:border-[#FF6B00]/20">
+                          <Icon className="h-6 w-6 text-[#FF6B00]" />
                         </div>
-                        <p className="font-['Plus_Jakarta_Sans'] text-xs text-[#F9F9F6]/60 max-w-xs leading-relaxed">
-                          {template.description}
-                        </p>
-                        <motion.button
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={(e) => togglePreview(template.name, e)}
-                          className="bg-white/5 text-[#F9F9F6] border border-white/20 font-['Plus_Jakarta_Sans'] font-semibold px-5 py-3 rounded-none uppercase text-[9px] tracking-widest transition-all duration-300 hover:bg-[#FF6B00] hover:text-black hover:border-[#FF6B00] flex items-center gap-2"
-                        >
-                          <Play size={10} fill="currentColor" /> Activate Live Sandbox
-                        </motion.button>
+
+                        <ArrowUpRight className="h-5 w-5 text-[#9AAB9B] transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#FF6B00]" />
                       </div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
+
+                      <h3 className="text-xl font-semibold tracking-tight text-white">
+                        {template.name}
+                      </h3>
+
+                      <p className="mt-2 text-sm text-[#9AAB9B]">
+                        Open live preview
+                      </p>
+
+                      <div className="mt-8 h-px w-full bg-gradient-to-r from-[#FF6B00]/40 via-[#9AAB9B]/20 to-transparent" />
+                    </div>
+                  </motion.a>
+                );
+              })}
             </div>
+            <p className="font-['Plus_Jakarta_Sans'] text-[#F9F9F6]/80 text-sm max-w-2xl mx-auto mt-6 text-center align-middle">
+              Looking for our standard projects? {" "}
+              <Link to="/projects" className="text-[#FF6B00] hover:underline font-bold">
+                View our other websites on the Projects page.
+              </Link>
+            </p>
+
           </div>
         </section>
-        
+
         {/* Pricing Packages */}
         <section className="py-20 md:py-32 px-6 md:px-16 bg-[#000000] border-b-[0.5px] border-white/5">
           <div className="max-w-7xl mx-auto">
@@ -246,60 +256,111 @@ const WebsiteService = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {packages.map((pkg, idx) => (
                 <motion.div
                   key={pkg.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20, delay: idx * 0.05 }}
-                  className={`flex flex-col space-y-8 p-8 border ${
-                    pkg.popular ? 'border-[#FF6B00] bg-white/5' : 'border-white/5 bg-transparent'
-                  }`}
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 bg-white/5 flex items-center justify-center text-[#FF6B00]">
-                        <pkg.icon size={20} strokeWidth={1} />
-                      </div>
-                      {pkg.popular && (
-                        <span className="bg-[#FF6B00] text-black text-[9px] font-bold px-3 py-1 uppercase tracking-widest">
-                          Most Popular
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="text-2xl font-['Clash_Display'] font-bold tracking-tight text-[#F9F9F6]">{pkg.name}</h3>
-                    <div className="text-lg font-bold text-[#FF6B00] tracking-wider">{pkg.price}</div>
-                    <p className="font-['Plus_Jakarta_Sans'] text-xs text-[#F9F9F6]/70 leading-relaxed min-h-[40px]">
-                      {pkg.description}
-                    </p>
-                  </div>
-
-                  <div className="border-t-[0.5px] border-white/10 pt-6 space-y-4 flex-grow">
-                    {pkg.features.map(feature => (
-                      <div key={feature} className="flex items-start gap-2.5 font-['Plus_Jakarta_Sans']">
-                        <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" strokeWidth={2} />
-                        <span className="text-xs text-[#F9F9F6]/85">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full py-4 rounded-none uppercase text-[10px] tracking-widest font-semibold font-['Plus_Jakarta_Sans'] transition-all ${
-                      pkg.popular 
-                        ? 'bg-[#FF6B00] text-black' 
-                        : 'border border-white/20 text-[#F9F9F6] hover:bg-white/5'
+                  viewport={{ once: true }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20,
+                    delay: idx * 0.05,
+                  }}
+                  whileHover={{ y: -6 }}
+                  className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500
+      ${pkg.popular
+                      ? "border border-[#FF6B00]/25 bg-white/[0.03] shadow-[0_20px_60px_rgba(255,107,0,0.08)]"
+                      : "border border-white/10 bg-[#0d0d0d]"
                     }`}
-                    onClick={() => {
-                      setFormData(prev => ({ ...prev, category: pkg.name }));
-                      document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    Select Package
-                  </motion.button>
+                >
+                  {/* Glow */}
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#FF6B00]/10 blur-3xl" />
+                    <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[#9AAB9B]/10 blur-3xl" />
+                  </div>
+
+                  <div className="relative z-10 flex h-full flex-col">
+                    {/* Header */}
+                    <div className="space-y-5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/5 bg-white/[0.04]">
+                          <pkg.icon
+                            size={22}
+                            strokeWidth={1.5}
+                            className="text-[#FF6B00]"
+                          />
+                        </div>
+
+                        {pkg.popular && (
+                          <div className="rounded-full border border-[#FF6B00]/20 bg-[#FF6B00]/10 px-4 py-1">
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#FF6B00]">
+                              Most Popular
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div>
+                        <h3 className="font-['Clash_Display'] text-3xl font-bold tracking-tight text-white">
+                          {pkg.name}
+                        </h3>
+
+                        <div className="mt-3 text-2xl font-bold tracking-tight text-[#FF6B00]">
+                          {pkg.price}
+                        </div>
+
+                        <p className="mt-4 text-sm leading-relaxed text-[#9AAB9B]">
+                          {pkg.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="my-8 h-px bg-gradient-to-r from-[#FF6B00]/30 via-[#9AAB9B]/10 to-transparent" />
+
+                    {/* Features */}
+                    <div className="flex-grow space-y-4">
+                      {pkg.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-3">
+                          <CheckCircle2
+                            size={16}
+                            strokeWidth={2}
+                            className="mt-0.5 shrink-0 text-[#FF6B00]"
+                          />
+
+                          <span className="text-sm text-white/85">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <motion.button
+                      whileHover={{ scale: 1.015 }}
+                      whileTap={{ scale: 0.985 }}
+                      onClick={() => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          category: pkg.name,
+                        }));
+
+                        document
+                          .getElementById("contact-form")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={`mt-8 h-14 rounded-2xl text-xs font-semibold uppercase tracking-[0.25em] transition-all duration-300
+          ${pkg.popular
+                          ? "bg-[#FF6B00] text-black hover:brightness-110"
+                          : "border border-white/10 bg-white/[0.03] text-white hover:border-[#9AAB9B]/30 hover:bg-white/[0.05]"
+                        }`}
+                    >
+                      Select Package
+                    </motion.button>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -307,112 +368,261 @@ const WebsiteService = () => {
         </section>
 
         {/* Contact Form Section */}
-        <section id="contact-form" className="py-20 md:py-32 px-6 md:px-16 bg-[#000000]">
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-12">
-              <div className="text-center space-y-4">
-                <span className="text-xs uppercase tracking-[0.3em] text-[#9AAB9B] font-medium block">
-                  Collab
-                </span>
-                <h2 className="text-3xl md:text-5xl font-['Clash_Display'] font-bold tracking-tighter">
-                  Build With Us
-                </h2>
-                <p className="font-['Plus_Jakarta_Sans'] text-sm text-[#F9F9F6]/80 max-w-md mx-auto">
-                  Fill out the form below and our technical team will reach out to you within 24 hours.
-                </p>
+        <section
+          id="contact-form"
+          className="relative py-24 md:py-36 px-6 md:px-16 bg-[#000000] overflow-hidden"
+        >
+          <div className="max-w-4xl mx-auto">
+
+            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#0d0d0d] p-8 md:p-12 lg:p-14">
+
+              {/* Ambient Glow */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#FF6B00]/10 blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#9AAB9B]/10 blur-3xl" />
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-8 font-['Plus_Jakarta_Sans']">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-xs uppercase tracking-widest font-bold text-[#9AAB9B]">Full Name *</label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-none border border-white/10 bg-[#0d0d0d] focus:border-[#FF6B00] outline-none transition-all text-sm"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-xs uppercase tracking-widest font-bold text-[#9AAB9B]">Phone Number</label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-none border border-white/10 bg-[#0d0d0d] focus:border-[#FF6B00] outline-none transition-all text-sm"
-                      placeholder="+91 9876543210"
-                    />
-                  </div>
+              <div className="relative z-10">
+
+                {/* Heading */}
+                <div className="text-center space-y-5 mb-14">
+                  <span className="text-xs uppercase tracking-[0.3em] text-[#9AAB9B] font-medium block">
+                    Collab
+                  </span>
+
+                  <h2 className="font-['Clash_Display'] text-4xl md:text-6xl font-bold tracking-tight text-white">
+                    Build With Us
+                  </h2>
+
+                  <p className="max-w-md mx-auto text-sm leading-relaxed text-[#9AAB9B]">
+                    Fill out the form below and our technical team will reach out
+                    within 24 hours.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-xs uppercase tracking-widest font-bold text-[#9AAB9B]">Email Address</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-none border border-white/10 bg-[#0d0d0d] focus:border-[#FF6B00] outline-none transition-all text-sm"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="category" className="text-xs uppercase tracking-widest font-bold text-[#9AAB9B]">Desired Package</label>
-                    <select
-                      id="category"
-                      name="category"
-                      value={formData.category}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-none border border-white/10 bg-[#0d0d0d] focus:border-[#FF6B00] outline-none transition-all text-sm appearance-none"
-                    >
-                      <option value="Starter / Basic">Starter / Basic</option>
-                      <option value="Professional">Professional</option>
-                      <option value="Luxurious / Custom">Luxurious / Custom</option>
-                      <option value="E-Commerce Suite">E-Commerce Suite</option>
-                      <option value="Not Sure Yet">Not Sure Yet</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="requirements" className="text-xs uppercase tracking-widest font-bold text-[#9AAB9B]">Project Requirements & Details</label>
-                  <textarea
-                    id="requirements"
-                    name="requirements"
-                    rows={4}
-                    value={formData.requirements}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-none border border-white/10 bg-[#0d0d0d] focus:border-[#FF6B00] outline-none transition-all text-sm resize-none"
-                    placeholder="Tell us about your business, features needed, and any reference sites..."
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={loading}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 text-xs font-semibold uppercase tracking-widest bg-[#FF6B00] text-black hover:bg-[#E65100] transition-colors flex items-center justify-center gap-2"
+                {/* Form */}
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-8 font-['Plus_Jakarta_Sans']"
                 >
-                  {loading ? (
-                    <>
-                      <Loader2 size={14} className="animate-spin" /> Submitting...
-                    </>
-                  ) : (
-                    <>
-                      Submit Request <ArrowRight size={14} strokeWidth={1.5} />
-                    </>
-                  )}
-                </motion.button>
-              </form>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    {/* Name */}
+                    <div className="space-y-3">
+                      <label
+                        htmlFor="name"
+                        className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#9AAB9B]"
+                      >
+                        Full Name *
+                      </label>
+
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className="
+                  w-full h-14 rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  px-5
+                  text-sm text-white
+                  placeholder:text-white/30
+                  outline-none
+                  transition-all duration-300
+                  focus:border-[#FF6B00]/50
+                  focus:bg-white/[0.05]
+                  focus:shadow-[0_0_0_4px_rgba(255,107,0,0.08)]
+                "
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div className="space-y-3">
+                      <label
+                        htmlFor="phone"
+                        className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#9AAB9B]"
+                      >
+                        Phone Number
+                      </label>
+
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+91 9876543210"
+                        className="
+                  w-full h-14 rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  px-5
+                  text-sm text-white
+                  placeholder:text-white/30
+                  outline-none
+                  transition-all duration-300
+                  focus:border-[#FF6B00]/50
+                  focus:bg-white/[0.05]
+                  focus:shadow-[0_0_0_4px_rgba(255,107,0,0.08)]
+                "
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    {/* Email */}
+                    <div className="space-y-3">
+                      <label
+                        htmlFor="email"
+                        className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#9AAB9B]"
+                      >
+                        Email Address
+                      </label>
+
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@example.com"
+                        className="
+                  w-full h-14 rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  px-5
+                  text-sm text-white
+                  placeholder:text-white/30
+                  outline-none
+                  transition-all duration-300
+                  focus:border-[#FF6B00]/50
+                  focus:bg-white/[0.05]
+                  focus:shadow-[0_0_0_4px_rgba(255,107,0,0.08)]
+                "
+                      />
+                    </div>
+
+                    {/* Package */}
+                    <div className="space-y-3">
+                      <label
+                        htmlFor="category"
+                        className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#9AAB9B]"
+                      >
+                        Desired Package
+                      </label>
+
+                      <select
+                        id="category"
+                        name="category"
+                        value={formData.category}
+                        onChange={handleChange}
+                        className="
+                  w-full h-14 rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  px-5
+                  text-sm text-white
+                  appearance-none
+                  outline-none
+                  transition-all duration-300
+                  focus:border-[#FF6B00]/50
+                  focus:bg-white/[0.05]
+                  focus:shadow-[0_0_0_4px_rgba(255,107,0,0.08)]
+                "
+                      >
+                        <option value="Starter / Basic">Starter / Basic</option>
+                        <option value="Professional">Professional</option>
+                        <option value="Luxurious / Custom">Luxurious / Custom</option>
+                        <option value="E-Commerce Suite">E-Commerce Suite</option>
+                        <option value="Not Sure Yet">Not Sure Yet</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Requirements */}
+                  <div className="space-y-3">
+                    <label
+                      htmlFor="requirements"
+                      className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#9AAB9B]"
+                    >
+                      Project Requirements & Details
+                    </label>
+
+                    <textarea
+                      id="requirements"
+                      name="requirements"
+                      rows={5}
+                      value={formData.requirements}
+                      onChange={handleChange}
+                      placeholder="Tell us about your business, features needed, and any reference sites..."
+                      className="
+                w-full min-h-[160px]
+                rounded-2xl
+                border border-white/10
+                bg-white/[0.03]
+                px-5 py-4
+                text-sm text-white
+                placeholder:text-white/30
+                resize-none
+                outline-none
+                transition-all duration-300
+                focus:border-[#FF6B00]/50
+                focus:bg-white/[0.05]
+                focus:shadow-[0_0_0_4px_rgba(255,107,0,0.08)]
+              "
+                    />
+                  </div>
+
+                  {/* CTA */}
+                  <motion.button
+                    type="submit"
+                    disabled={loading}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.985 }}
+                    className="
+              group
+              relative
+              h-14
+              w-full
+              overflow-hidden
+              rounded-2xl
+              bg-[#FF6B00]
+              text-black
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[0.25em]
+              transition-all
+              duration-300
+              hover:shadow-[0_10px_40px_rgba(255,107,0,0.25)]
+            "
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {loading ? (
+                        <>
+                          <Loader2 size={14} className="animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Submit Request
+                          <ArrowRight
+                            size={14}
+                            strokeWidth={1.5}
+                            className="transition-transform duration-300 group-hover:translate-x-1"
+                          />
+                        </>
+                      )}
+                    </span>
+                  </motion.button>
+                </form>
+
+              </div>
             </div>
           </div>
         </section>

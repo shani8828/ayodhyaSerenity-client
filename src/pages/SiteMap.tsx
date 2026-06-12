@@ -12,7 +12,7 @@ const pages = [
   { title: "Privacy Policy", path: "/privacy-policy", desc: "How Ayodhya Serenity handles and protects your data." },
   { title: "Terms & Conditions", path: "/terms-and-conditions", desc: "Rules governing the use of the Ayodhya Serenity platform." },
   { title: "Copyright & Legal", path: "/copyright-legal", desc: "Intellectual property protections and legal enforcement." },
-];
+]; 
 
 const SiteMap = () => (
   <main className="bg-[#000000] text-[#F9F9F6] pt-16 min-h-screen selection:bg-[#FF6B00] selection:text-black">
