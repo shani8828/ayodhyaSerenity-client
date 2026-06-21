@@ -99,4 +99,14 @@ export const temples = [
     verified: true,
     alt: "Ayodhya Serenity - Shravan Kumar Mandir sacred shrine in Ayodhya",
   },
+  {
+    coordinates: { lat: 26.629357820451613, lng: 81.93537256288599 },
+    name: "BarangBali Mandir, Kotwa",
+    location: "Ayodhya, Uttar Pradesh",
+    img: "https://res.cloudinary.com/dhdqv2qjk/image/upload/q_auto/f_auto/v1782053742/BajrangBaliMandirKotwa_AyodhyaSerenity_sjvahp.avif",
+    desc: "A sacred sanctuary of peace, devotion, and spiritual serenity. Dedicated to Lord Hanuman, established through the hard work of Late Shree Ramdeen Maurya.",
+    link: "https://bajrangbalimandirkotwa.vercel.app",
+    verified: true,
+    alt: "Ayodhya Serenity - Bajrang Bali Mandir, Kotwa temple in Ayodhya",
+  },
 ];
